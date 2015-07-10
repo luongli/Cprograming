@@ -28,8 +28,8 @@ int main(int argv, char **argc)
   //load file
   loadFile(A, argc[1], len);
 
-  for(i = 1; i <= len; i++) printf("%d ", A[i]);
-  printf("\n");
+  //for(i = 1; i <= len; i++) printf("%d ", A[i]);
+  //printf("\n");
 
   heap_sort(A, len);
 
