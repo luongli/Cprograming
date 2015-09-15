@@ -1,0 +1,228 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include "luong.h"
+
+typedef struct{
+  char model[20];
+  char mem[10];
+  float size;
+  float cost;
+} elementtype;
+typedef struct node node;
+struct node{
+  elementtype element;
+  node* next;
+};
+
+node* root;
+node* cur;
+node* last;
+node* prev;
+
+//prototype
+node *findPreCurrent(node *current);
+node *makeNewNode(elementtype e);
+void insertAtTheEnd(elementtype e);
+void insertAfterCurrent(elementtype e);
+void insertBeforeCurrent(elementtype e);
+void delBegining();
+void freeList(node *p);
+void writeToBinaryFile(node* r, char *name);
+void readFromBinaryFile(node* r, char *name);
+node *findNode(node *r, char *key);
+
+
+void printList(node *p)
+{
+  int i = 0;
+
+  if(p == NULL){
+  }else{
+    printf("%-6s%-25s%-15s%-15s%-15s\n", "STT", "Model", "Memory (GB)", "Screen (inch)", "Cost (VND)");
+    do{
+      printf("%-6d%-25s%-15s%-15.1lf%-15.0lf\n", i+1, p->element.model, p->element.mem, p->element.size, p->element.cost);
+      p=p->next;
+      i++;
+    }while(p!=NULL);
+  }
+}
+
+node *makeNewNode(elementtype e)
+{
+  node *p = (node*) malloc(sizeof(node));
+  p->element = e;
+  p->next = NULL;
+  
+  return p;
+}
+
+void insertAfterCurrent(elementtype e)
+{
+
+  node *newNode = makeNewNode(e);
+  if(root == NULL){
+    cur = newNode;
+    root = newNode;
+    last = newNode;
+  }else{
+    newNode->next = cur->next;
+    cur->next = newNode;
+    cur = cur->next;
+  }
+
+}
+
+
+void insertBeforeCurrent(elementtype e)
+{
+
+  node * new = makeNewNode(e);
+  if(root == NULL){
+    root = new;
+    cur = root;
+    prev = NULL;
+  }else{
+    new->next = cur;
+    if(cur == root){
+      root = new;
+    }else{
+      prev = findPreCurrent(cur);
+      prev->next = new;
+    }
+    cur = new;
+  }
+
+}//end insertBeforeCurrent
+
+node *findPreCurrent(node *current)
+{
+  node *p = root;
+  while(p != NULL){
+    if(p->next == current) return p;
+    p = p->next;
+  }
+  return NULL;
+}
+
+void insertBegining(elementtype e){
+  node *new = makeNewNode(e);
+  if(root == NULL){
+    root = new;
+    cur = new;
+    prev = NULL;
+    last = new;
+  }else{
+    new->next = root;
+    root = new;
+    cur = new;
+  }//end else
+
+}//end insertBegining
+
+void insertAtTheEnd(elementtype e)
+{
+
+  if(root == NULL){
+    node *p = makeNewNode(e);
+    root = p;
+    last = p;
+  }else{
+    node *p = makeNewNode(e);
+    last->next = p;
+    last = p;
+  }//end else
+
+}//end insertAtTheEnd
+
+void delBegining()
+{
+  node* del;
+  del = root;
+  root = root->next;
+  free(del);
+}//end delBegining
+
+void freeList(node *p)
+{
+  node *to_free = p;
+  while(p != NULL){
+    p = p->next;
+    free(to_free);
+    to_free = p;
+  }
+}
+
+void delCurrent(node *p);
+
+void writeToBinaryFile(node* r, char *name)
+{
+  
+  if(r == NULL){
+    printf("The list is NULL.\n");
+    return;
+  }
+
+  FILE *f;
+
+  f = myfopen(name, "w+b");
+
+  do{
+    fwrite(&(r->element), 1, sizeof(elementtype), f);
+    r = r->next;
+  }while(r != NULL);
+
+  fclose(f);
+
+}//end writeToBinaryFile
+
+
+void readFromBinaryFile(node* r, char *name)
+{
+
+  FILE *f;
+
+  elementtype *buffer = malloc(sizeof(elementtype));
+
+  f = myfopen(name, "r");
+
+  while(!feof(f)){
+    fread(buffer, sizeof(elementtype), 1, f);
+    insertAtTheEnd(*buffer);
+  }
+
+  fclose(f);
+
+}//end readFromBinaryFile
+
+
+node *findNode(node *r, char *key)
+{
+
+  if(r == NULL){
+    printf("root is NULL.\n");
+    return NULL;
+  }
+
+  do{
+    if(!strcmp(r->element.model, key)) return r;
+    else r= r->next;
+  }while(r != NULL);
+
+  return NULL;
+}//end findNode
+
+/*struct list_int *list_reverse (struct list_int* li)
+{
+
+  struct list_int *cur, *prev;
+  cur = prev = NULL;
+  while(li != NULL){
+    li = li->next;
+    cur->next = prev;
+    prev = cur;
+  }
+
+  return prev;
+
+}//end function
+*/

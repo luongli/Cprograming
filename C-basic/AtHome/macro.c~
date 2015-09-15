@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include"/home/li/Cprograming/Library/luong.h"
+
+#define PI 3.14
+#define CIRCLE_AREA(x) (PI * (x) * (x))
+
+int main()
+{
+  int r;
+
+  do{
+    printf("Enter the radius (-1 to exit): ");
+    scanf("%d", &r);
+    if(r == -1) break;
+    printf("The area of the circle is %.3f\n", CIRCLE_AREA(r));
+  }while(1);
+
+}

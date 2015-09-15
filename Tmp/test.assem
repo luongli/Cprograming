@@ -1,0 +1,1662 @@
+
+test:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000400720 <_init>:
+  400720:	48 83 ec 08          	sub    rsp,0x8
+  400724:	48 8b 05 cd 18 20 00 	mov    rax,QWORD PTR [rip+0x2018cd]        # 601ff8 <_DYNAMIC+0x1d0>
+  40072b:	48 85 c0             	test   rax,rax
+  40072e:	74 05                	je     400735 <_init+0x15>
+  400730:	e8 ab 00 00 00       	call   4007e0 <__gmon_start__@plt>
+  400735:	48 83 c4 08          	add    rsp,0x8
+  400739:	c3                   	ret    
+
+Disassembly of section .plt:
+
+0000000000400740 <puts@plt-0x10>:
+  400740:	ff 35 c2 18 20 00    	push   QWORD PTR [rip+0x2018c2]        # 602008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  400746:	ff 25 c4 18 20 00    	jmp    QWORD PTR [rip+0x2018c4]        # 602010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40074c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000000400750 <puts@plt>:
+  400750:	ff 25 c2 18 20 00    	jmp    QWORD PTR [rip+0x2018c2]        # 602018 <_GLOBAL_OFFSET_TABLE_+0x18>
+  400756:	68 00 00 00 00       	push   0x0
+  40075b:	e9 e0 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400760 <fclose@plt>:
+  400760:	ff 25 ba 18 20 00    	jmp    QWORD PTR [rip+0x2018ba]        # 602020 <_GLOBAL_OFFSET_TABLE_+0x20>
+  400766:	68 01 00 00 00       	push   0x1
+  40076b:	e9 d0 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400770 <strlen@plt>:
+  400770:	ff 25 b2 18 20 00    	jmp    QWORD PTR [rip+0x2018b2]        # 602028 <_GLOBAL_OFFSET_TABLE_+0x28>
+  400776:	68 02 00 00 00       	push   0x2
+  40077b:	e9 c0 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400780 <__stack_chk_fail@plt>:
+  400780:	ff 25 aa 18 20 00    	jmp    QWORD PTR [rip+0x2018aa]        # 602030 <_GLOBAL_OFFSET_TABLE_+0x30>
+  400786:	68 03 00 00 00       	push   0x3
+  40078b:	e9 b0 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400790 <printf@plt>:
+  400790:	ff 25 a2 18 20 00    	jmp    QWORD PTR [rip+0x2018a2]        # 602038 <_GLOBAL_OFFSET_TABLE_+0x38>
+  400796:	68 04 00 00 00       	push   0x4
+  40079b:	e9 a0 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007a0 <fgetc@plt>:
+  4007a0:	ff 25 9a 18 20 00    	jmp    QWORD PTR [rip+0x20189a]        # 602040 <_GLOBAL_OFFSET_TABLE_+0x40>
+  4007a6:	68 05 00 00 00       	push   0x5
+  4007ab:	e9 90 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007b0 <__libc_start_main@plt>:
+  4007b0:	ff 25 92 18 20 00    	jmp    QWORD PTR [rip+0x201892]        # 602048 <_GLOBAL_OFFSET_TABLE_+0x48>
+  4007b6:	68 06 00 00 00       	push   0x6
+  4007bb:	e9 80 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007c0 <getchar@plt>:
+  4007c0:	ff 25 8a 18 20 00    	jmp    QWORD PTR [rip+0x20188a]        # 602050 <_GLOBAL_OFFSET_TABLE_+0x50>
+  4007c6:	68 07 00 00 00       	push   0x7
+  4007cb:	e9 70 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007d0 <fprintf@plt>:
+  4007d0:	ff 25 82 18 20 00    	jmp    QWORD PTR [rip+0x201882]        # 602058 <_GLOBAL_OFFSET_TABLE_+0x58>
+  4007d6:	68 08 00 00 00       	push   0x8
+  4007db:	e9 60 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007e0 <__gmon_start__@plt>:
+  4007e0:	ff 25 7a 18 20 00    	jmp    QWORD PTR [rip+0x20187a]        # 602060 <_GLOBAL_OFFSET_TABLE_+0x60>
+  4007e6:	68 09 00 00 00       	push   0x9
+  4007eb:	e9 50 ff ff ff       	jmp    400740 <_init+0x20>
+
+00000000004007f0 <fopen@plt>:
+  4007f0:	ff 25 72 18 20 00    	jmp    QWORD PTR [rip+0x201872]        # 602068 <_GLOBAL_OFFSET_TABLE_+0x68>
+  4007f6:	68 0a 00 00 00       	push   0xa
+  4007fb:	e9 40 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400800 <__isoc99_scanf@plt>:
+  400800:	ff 25 6a 18 20 00    	jmp    QWORD PTR [rip+0x20186a]        # 602070 <_GLOBAL_OFFSET_TABLE_+0x70>
+  400806:	68 0b 00 00 00       	push   0xb
+  40080b:	e9 30 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400810 <strcat@plt>:
+  400810:	ff 25 62 18 20 00    	jmp    QWORD PTR [rip+0x201862]        # 602078 <_GLOBAL_OFFSET_TABLE_+0x78>
+  400816:	68 0c 00 00 00       	push   0xc
+  40081b:	e9 20 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400820 <exit@plt>:
+  400820:	ff 25 5a 18 20 00    	jmp    QWORD PTR [rip+0x20185a]        # 602080 <_GLOBAL_OFFSET_TABLE_+0x80>
+  400826:	68 0d 00 00 00       	push   0xd
+  40082b:	e9 10 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400830 <rand@plt>:
+  400830:	ff 25 52 18 20 00    	jmp    QWORD PTR [rip+0x201852]        # 602088 <_GLOBAL_OFFSET_TABLE_+0x88>
+  400836:	68 0e 00 00 00       	push   0xe
+  40083b:	e9 00 ff ff ff       	jmp    400740 <_init+0x20>
+
+0000000000400840 <__ctype_b_loc@plt>:
+  400840:	ff 25 4a 18 20 00    	jmp    QWORD PTR [rip+0x20184a]        # 602090 <_GLOBAL_OFFSET_TABLE_+0x90>
+  400846:	68 0f 00 00 00       	push   0xf
+  40084b:	e9 f0 fe ff ff       	jmp    400740 <_init+0x20>
+
+Disassembly of section .text:
+
+0000000000400850 <_start>:
+  400850:	31 ed                	xor    ebp,ebp
+  400852:	49 89 d1             	mov    r9,rdx
+  400855:	5e                   	pop    rsi
+  400856:	48 89 e2             	mov    rdx,rsp
+  400859:	48 83 e4 f0          	and    rsp,0xfffffffffffffff0
+  40085d:	50                   	push   rax
+  40085e:	54                   	push   rsp
+  40085f:	49 c7 c0 20 15 40 00 	mov    r8,0x401520
+  400866:	48 c7 c1 b0 14 40 00 	mov    rcx,0x4014b0
+  40086d:	48 c7 c7 c4 13 40 00 	mov    rdi,0x4013c4
+  400874:	e8 37 ff ff ff       	call   4007b0 <__libc_start_main@plt>
+  400879:	f4                   	hlt    
+  40087a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+0000000000400880 <deregister_tm_clones>:
+  400880:	b8 af 20 60 00       	mov    eax,0x6020af
+  400885:	55                   	push   rbp
+  400886:	48 2d a8 20 60 00    	sub    rax,0x6020a8
+  40088c:	48 83 f8 0e          	cmp    rax,0xe
+  400890:	48 89 e5             	mov    rbp,rsp
+  400893:	77 02                	ja     400897 <deregister_tm_clones+0x17>
+  400895:	5d                   	pop    rbp
+  400896:	c3                   	ret    
+  400897:	b8 00 00 00 00       	mov    eax,0x0
+  40089c:	48 85 c0             	test   rax,rax
+  40089f:	74 f4                	je     400895 <deregister_tm_clones+0x15>
+  4008a1:	5d                   	pop    rbp
+  4008a2:	bf a8 20 60 00       	mov    edi,0x6020a8
+  4008a7:	ff e0                	jmp    rax
+  4008a9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+00000000004008b0 <register_tm_clones>:
+  4008b0:	b8 a8 20 60 00       	mov    eax,0x6020a8
+  4008b5:	55                   	push   rbp
+  4008b6:	48 2d a8 20 60 00    	sub    rax,0x6020a8
+  4008bc:	48 c1 f8 03          	sar    rax,0x3
+  4008c0:	48 89 e5             	mov    rbp,rsp
+  4008c3:	48 89 c2             	mov    rdx,rax
+  4008c6:	48 c1 ea 3f          	shr    rdx,0x3f
+  4008ca:	48 01 d0             	add    rax,rdx
+  4008cd:	48 d1 f8             	sar    rax,1
+  4008d0:	75 02                	jne    4008d4 <register_tm_clones+0x24>
+  4008d2:	5d                   	pop    rbp
+  4008d3:	c3                   	ret    
+  4008d4:	ba 00 00 00 00       	mov    edx,0x0
+  4008d9:	48 85 d2             	test   rdx,rdx
+  4008dc:	74 f4                	je     4008d2 <register_tm_clones+0x22>
+  4008de:	5d                   	pop    rbp
+  4008df:	48 89 c6             	mov    rsi,rax
+  4008e2:	bf a8 20 60 00       	mov    edi,0x6020a8
+  4008e7:	ff e2                	jmp    rdx
+  4008e9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+00000000004008f0 <__do_global_dtors_aux>:
+  4008f0:	80 3d b1 17 20 00 00 	cmp    BYTE PTR [rip+0x2017b1],0x0        # 6020a8 <__TMC_END__>
+  4008f7:	75 11                	jne    40090a <__do_global_dtors_aux+0x1a>
+  4008f9:	55                   	push   rbp
+  4008fa:	48 89 e5             	mov    rbp,rsp
+  4008fd:	e8 7e ff ff ff       	call   400880 <deregister_tm_clones>
+  400902:	5d                   	pop    rbp
+  400903:	c6 05 9e 17 20 00 01 	mov    BYTE PTR [rip+0x20179e],0x1        # 6020a8 <__TMC_END__>
+  40090a:	f3 c3                	repz ret 
+  40090c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000000400910 <frame_dummy>:
+  400910:	48 83 3d 08 15 20 00 	cmp    QWORD PTR [rip+0x201508],0x0        # 601e20 <__JCR_END__>
+  400917:	00 
+  400918:	74 1e                	je     400938 <frame_dummy+0x28>
+  40091a:	b8 00 00 00 00       	mov    eax,0x0
+  40091f:	48 85 c0             	test   rax,rax
+  400922:	74 14                	je     400938 <frame_dummy+0x28>
+  400924:	55                   	push   rbp
+  400925:	bf 20 1e 60 00       	mov    edi,0x601e20
+  40092a:	48 89 e5             	mov    rbp,rsp
+  40092d:	ff d0                	call   rax
+  40092f:	5d                   	pop    rbp
+  400930:	e9 7b ff ff ff       	jmp    4008b0 <register_tm_clones>
+  400935:	0f 1f 00             	nop    DWORD PTR [rax]
+  400938:	e9 73 ff ff ff       	jmp    4008b0 <register_tm_clones>
+
+000000000040093d <shiftString>:
+*
+* shiftString
+*
+***************************************/
+void shiftString(char s[], int n1, int n2)
+{
+  40093d:	55                   	push   rbp
+  40093e:	48 89 e5             	mov    rbp,rsp
+  400941:	53                   	push   rbx
+  400942:	48 83 ec 28          	sub    rsp,0x28
+  400946:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
+  40094a:	89 75 d4             	mov    DWORD PTR [rbp-0x2c],esi
+  40094d:	89 55 d0             	mov    DWORD PTR [rbp-0x30],edx
+
+	int i;
+
+	for(i = n2; i < strlen(s)+1; i++)
+  400950:	8b 45 d0             	mov    eax,DWORD PTR [rbp-0x30]
+  400953:	89 45 ec             	mov    DWORD PTR [rbp-0x14],eax
+  400956:	eb 2b                	jmp    400983 <shiftString+0x46>
+	{
+		s[i+n1-n2] = s[i];
+  400958:	8b 45 d4             	mov    eax,DWORD PTR [rbp-0x2c]
+  40095b:	8b 55 ec             	mov    edx,DWORD PTR [rbp-0x14]
+  40095e:	01 d0                	add    eax,edx
+  400960:	2b 45 d0             	sub    eax,DWORD PTR [rbp-0x30]
+  400963:	48 63 d0             	movsxd rdx,eax
+  400966:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  40096a:	48 01 c2             	add    rdx,rax
+  40096d:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400970:	48 63 c8             	movsxd rcx,eax
+  400973:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400977:	48 01 c8             	add    rax,rcx
+  40097a:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  40097d:	88 02                	mov    BYTE PTR [rdx],al
+void shiftString(char s[], int n1, int n2)
+{
+
+	int i;
+
+	for(i = n2; i < strlen(s)+1; i++)
+  40097f:	83 45 ec 01          	add    DWORD PTR [rbp-0x14],0x1
+  400983:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400986:	48 63 d8             	movsxd rbx,eax
+  400989:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  40098d:	48 89 c7             	mov    rdi,rax
+  400990:	e8 db fd ff ff       	call   400770 <strlen@plt>
+  400995:	48 83 c0 01          	add    rax,0x1
+  400999:	48 39 c3             	cmp    rbx,rax
+  40099c:	72 ba                	jb     400958 <shiftString+0x1b>
+	{
+		s[i+n1-n2] = s[i];
+	}//end for
+
+}//end shiftString
+  40099e:	48 83 c4 28          	add    rsp,0x28
+  4009a2:	5b                   	pop    rbx
+  4009a3:	5d                   	pop    rbp
+  4009a4:	c3                   	ret    
+
+00000000004009a5 <trimLeft>:
+*
+* trimLeft
+*
+*****************************************/
+void trimLeft(char s[])
+{
+  4009a5:	55                   	push   rbp
+  4009a6:	48 89 e5             	mov    rbp,rsp
+  4009a9:	48 83 ec 20          	sub    rsp,0x20
+  4009ad:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+
+	int len = strlen(s);
+  4009b1:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4009b5:	48 89 c7             	mov    rdi,rax
+  4009b8:	e8 b3 fd ff ff       	call   400770 <strlen@plt>
+  4009bd:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	int i = 0;
+  4009c0:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+
+	if(s[i] != ' ') return;
+  4009c7:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  4009ca:	48 63 d0             	movsxd rdx,eax
+  4009cd:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4009d1:	48 01 d0             	add    rax,rdx
+  4009d4:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  4009d7:	3c 20                	cmp    al,0x20
+  4009d9:	74 02                	je     4009dd <trimLeft+0x38>
+  4009db:	eb 2e                	jmp    400a0b <trimLeft+0x66>
+	else
+	{
+		while(s[i] == ' ') i++;
+  4009dd:	eb 04                	jmp    4009e3 <trimLeft+0x3e>
+  4009df:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  4009e3:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  4009e6:	48 63 d0             	movsxd rdx,eax
+  4009e9:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4009ed:	48 01 d0             	add    rax,rdx
+  4009f0:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  4009f3:	3c 20                	cmp    al,0x20
+  4009f5:	74 e8                	je     4009df <trimLeft+0x3a>
+
+		shiftString(s, 0, i);
+  4009f7:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  4009fa:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4009fe:	be 00 00 00 00       	mov    esi,0x0
+  400a03:	48 89 c7             	mov    rdi,rax
+  400a06:	e8 32 ff ff ff       	call   40093d <shiftString>
+	}
+
+}//end trimLeft
+  400a0b:	c9                   	leave  
+  400a0c:	c3                   	ret    
+
+0000000000400a0d <trimRight>:
+*
+* trimRight
+*
+******************************************/
+void trimRight(char s[])
+{
+  400a0d:	55                   	push   rbp
+  400a0e:	48 89 e5             	mov    rbp,rsp
+  400a11:	48 83 ec 20          	sub    rsp,0x20
+  400a15:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+	int len = strlen(s);
+  400a19:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a1d:	48 89 c7             	mov    rdi,rax
+  400a20:	e8 4b fd ff ff       	call   400770 <strlen@plt>
+  400a25:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	int i = len - 1;
+  400a28:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400a2b:	83 e8 01             	sub    eax,0x1
+  400a2e:	89 45 f8             	mov    DWORD PTR [rbp-0x8],eax
+
+	if(s[i] != ' ') return;
+  400a31:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  400a34:	48 63 d0             	movsxd rdx,eax
+  400a37:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a3b:	48 01 d0             	add    rax,rdx
+  400a3e:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400a41:	3c 20                	cmp    al,0x20
+  400a43:	74 02                	je     400a47 <trimRight+0x3a>
+  400a45:	eb 3c                	jmp    400a83 <trimRight+0x76>
+	else
+	{
+		while(s[i] == ' ') i--;
+  400a47:	eb 04                	jmp    400a4d <trimRight+0x40>
+  400a49:	83 6d f8 01          	sub    DWORD PTR [rbp-0x8],0x1
+  400a4d:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  400a50:	48 63 d0             	movsxd rdx,eax
+  400a53:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a57:	48 01 d0             	add    rax,rdx
+  400a5a:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400a5d:	3c 20                	cmp    al,0x20
+  400a5f:	74 e8                	je     400a49 <trimRight+0x3c>
+		s[i+1] = s[len];
+  400a61:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  400a64:	48 98                	cdqe   
+  400a66:	48 8d 50 01          	lea    rdx,[rax+0x1]
+  400a6a:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a6e:	48 01 c2             	add    rdx,rax
+  400a71:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400a74:	48 63 c8             	movsxd rcx,eax
+  400a77:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a7b:	48 01 c8             	add    rax,rcx
+  400a7e:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400a81:	88 02                	mov    BYTE PTR [rdx],al
+	}//end else
+
+}//end trimRight
+  400a83:	c9                   	leave  
+  400a84:	c3                   	ret    
+
+0000000000400a85 <trimMiddle>:
+*
+* trimMiddle
+*
+****************************************/
+void trimMiddle(char s[])
+{
+  400a85:	55                   	push   rbp
+  400a86:	48 89 e5             	mov    rbp,rsp
+  400a89:	48 83 ec 20          	sub    rsp,0x20
+  400a8d:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+
+	int len = strlen(s);
+  400a91:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400a95:	48 89 c7             	mov    rdi,rax
+  400a98:	e8 d3 fc ff ff       	call   400770 <strlen@plt>
+  400a9d:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+	int i;
+	int count;
+
+	for(i = 1; i < len; i++)
+  400aa0:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [rbp-0xc],0x1
+  400aa7:	eb 6b                	jmp    400b14 <trimMiddle+0x8f>
+	{
+
+		if(s[i] == ' ')
+  400aa9:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400aac:	48 63 d0             	movsxd rdx,eax
+  400aaf:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400ab3:	48 01 d0             	add    rax,rdx
+  400ab6:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400ab9:	3c 20                	cmp    al,0x20
+  400abb:	75 53                	jne    400b10 <trimMiddle+0x8b>
+		{
+			count = 0;
+  400abd:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+			while(s[i] == ' '){
+  400ac4:	eb 08                	jmp    400ace <trimMiddle+0x49>
+				i++;
+  400ac6:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
+				count++;
+  400aca:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+	{
+
+		if(s[i] == ' ')
+		{
+			count = 0;
+			while(s[i] == ' '){
+  400ace:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400ad1:	48 63 d0             	movsxd rdx,eax
+  400ad4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400ad8:	48 01 d0             	add    rax,rdx
+  400adb:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400ade:	3c 20                	cmp    al,0x20
+  400ae0:	74 e4                	je     400ac6 <trimMiddle+0x41>
+				i++;
+				count++;
+			};
+
+			if(count > 1) shiftString(s, i+1 - count, i);
+  400ae2:	83 7d f8 01          	cmp    DWORD PTR [rbp-0x8],0x1
+  400ae6:	7e 1c                	jle    400b04 <trimMiddle+0x7f>
+  400ae8:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400aeb:	83 c0 01             	add    eax,0x1
+  400aee:	2b 45 f8             	sub    eax,DWORD PTR [rbp-0x8]
+  400af1:	89 c1                	mov    ecx,eax
+  400af3:	8b 55 f4             	mov    edx,DWORD PTR [rbp-0xc]
+  400af6:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400afa:	89 ce                	mov    esi,ecx
+  400afc:	48 89 c7             	mov    rdi,rax
+  400aff:	e8 39 fe ff ff       	call   40093d <shiftString>
+			i = i + 1 - count;	//update i
+  400b04:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400b07:	83 c0 01             	add    eax,0x1
+  400b0a:	2b 45 f8             	sub    eax,DWORD PTR [rbp-0x8]
+  400b0d:	89 45 f4             	mov    DWORD PTR [rbp-0xc],eax
+
+	int len = strlen(s);
+	int i;
+	int count;
+
+	for(i = 1; i < len; i++)
+  400b10:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
+  400b14:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400b17:	3b 45 fc             	cmp    eax,DWORD PTR [rbp-0x4]
+  400b1a:	7c 8d                	jl     400aa9 <trimMiddle+0x24>
+			i = i + 1 - count;	//update i
+		}//end if
+
+	}//end for
+
+}//end trimMiddle
+  400b1c:	c9                   	leave  
+  400b1d:	c3                   	ret    
+
+0000000000400b1e <standardName>:
+*
+* standardName
+*
+***********************************************************/
+void standardName(char s[])
+{
+  400b1e:	55                   	push   rbp
+  400b1f:	48 89 e5             	mov    rbp,rsp
+  400b22:	53                   	push   rbx
+  400b23:	48 83 ec 28          	sub    rsp,0x28
+  400b27:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
+	int i;
+
+	//eliminate redundant space bars
+	trimLeft(s);
+  400b2b:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b2f:	48 89 c7             	mov    rdi,rax
+  400b32:	e8 6e fe ff ff       	call   4009a5 <trimLeft>
+	trimRight(s);
+  400b37:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b3b:	48 89 c7             	mov    rdi,rax
+  400b3e:	e8 ca fe ff ff       	call   400a0d <trimRight>
+	trimMiddle(s);
+  400b43:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b47:	48 89 c7             	mov    rdi,rax
+  400b4a:	e8 36 ff ff ff       	call   400a85 <trimMiddle>
+
+	//Capitalize the first Character
+	if(!isupper(s[0])) s[0] -= 32;
+  400b4f:	e8 ec fc ff ff       	call   400840 <__ctype_b_loc@plt>
+  400b54:	48 8b 10             	mov    rdx,QWORD PTR [rax]
+  400b57:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b5b:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400b5e:	48 0f be c0          	movsx  rax,al
+  400b62:	48 01 c0             	add    rax,rax
+  400b65:	48 01 d0             	add    rax,rdx
+  400b68:	0f b7 00             	movzx  eax,WORD PTR [rax]
+  400b6b:	0f b7 c0             	movzx  eax,ax
+  400b6e:	25 00 01 00 00       	and    eax,0x100
+  400b73:	85 c0                	test   eax,eax
+  400b75:	75 12                	jne    400b89 <standardName+0x6b>
+  400b77:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b7b:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400b7e:	83 e8 20             	sub    eax,0x20
+  400b81:	89 c2                	mov    edx,eax
+  400b83:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b87:	88 10                	mov    BYTE PTR [rax],dl
+	for(i = 1; i < strlen(s); i++)
+  400b89:	c7 45 ec 01 00 00 00 	mov    DWORD PTR [rbp-0x14],0x1
+  400b90:	eb 79                	jmp    400c0b <standardName+0xed>
+	{
+		//printf("%d ", i);
+		if(s[i] == ' '){
+  400b92:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400b95:	48 63 d0             	movsxd rdx,eax
+  400b98:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400b9c:	48 01 d0             	add    rax,rdx
+  400b9f:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400ba2:	3c 20                	cmp    al,0x20
+  400ba4:	75 61                	jne    400c07 <standardName+0xe9>
+			if(!isupper(s[i+1]))
+  400ba6:	e8 95 fc ff ff       	call   400840 <__ctype_b_loc@plt>
+  400bab:	48 8b 00             	mov    rax,QWORD PTR [rax]
+  400bae:	8b 55 ec             	mov    edx,DWORD PTR [rbp-0x14]
+  400bb1:	48 63 d2             	movsxd rdx,edx
+  400bb4:	48 8d 4a 01          	lea    rcx,[rdx+0x1]
+  400bb8:	48 8b 55 d8          	mov    rdx,QWORD PTR [rbp-0x28]
+  400bbc:	48 01 ca             	add    rdx,rcx
+  400bbf:	0f b6 12             	movzx  edx,BYTE PTR [rdx]
+  400bc2:	48 0f be d2          	movsx  rdx,dl
+  400bc6:	48 01 d2             	add    rdx,rdx
+  400bc9:	48 01 d0             	add    rax,rdx
+  400bcc:	0f b7 00             	movzx  eax,WORD PTR [rax]
+  400bcf:	0f b7 c0             	movzx  eax,ax
+  400bd2:	25 00 01 00 00       	and    eax,0x100
+  400bd7:	85 c0                	test   eax,eax
+  400bd9:	75 2c                	jne    400c07 <standardName+0xe9>
+			{
+				s[i+1] -= 32;
+  400bdb:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400bde:	48 98                	cdqe   
+  400be0:	48 8d 50 01          	lea    rdx,[rax+0x1]
+  400be4:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400be8:	48 01 c2             	add    rdx,rax
+  400beb:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400bee:	48 98                	cdqe   
+  400bf0:	48 8d 48 01          	lea    rcx,[rax+0x1]
+  400bf4:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400bf8:	48 01 c8             	add    rax,rcx
+  400bfb:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400bfe:	83 e8 20             	sub    eax,0x20
+  400c01:	88 02                	mov    BYTE PTR [rdx],al
+				i++;
+  400c03:	83 45 ec 01          	add    DWORD PTR [rbp-0x14],0x1
+	trimRight(s);
+	trimMiddle(s);
+
+	//Capitalize the first Character
+	if(!isupper(s[0])) s[0] -= 32;
+	for(i = 1; i < strlen(s); i++)
+  400c07:	83 45 ec 01          	add    DWORD PTR [rbp-0x14],0x1
+  400c0b:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  400c0e:	48 63 d8             	movsxd rbx,eax
+  400c11:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400c15:	48 89 c7             	mov    rdi,rax
+  400c18:	e8 53 fb ff ff       	call   400770 <strlen@plt>
+  400c1d:	48 39 c3             	cmp    rbx,rax
+  400c20:	0f 82 6c ff ff ff    	jb     400b92 <standardName+0x74>
+				i++;
+			}//end nested if
+		}//end if
+
+	}//end for
+}//end standardName
+  400c26:	48 83 c4 28          	add    rsp,0x28
+  400c2a:	5b                   	pop    rbx
+  400c2b:	5d                   	pop    rbp
+  400c2c:	c3                   	ret    
+
+0000000000400c2d <swapInt>:
+
+
+void swapInt(int *a, int *b)
+{
+  400c2d:	55                   	push   rbp
+  400c2e:	48 89 e5             	mov    rbp,rsp
+  400c31:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400c35:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  int tmp;
+
+  tmp = *a;
+  400c39:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400c3d:	8b 00                	mov    eax,DWORD PTR [rax]
+  400c3f:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  *a = *b;
+  400c42:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  400c46:	8b 10                	mov    edx,DWORD PTR [rax]
+  400c48:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400c4c:	89 10                	mov    DWORD PTR [rax],edx
+  *b = tmp;
+  400c4e:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  400c52:	8b 55 fc             	mov    edx,DWORD PTR [rbp-0x4]
+  400c55:	89 10                	mov    DWORD PTR [rax],edx
+}
+  400c57:	5d                   	pop    rbp
+  400c58:	c3                   	ret    
+
+0000000000400c59 <decreaseInt>:
+
+void decreaseInt(int A[], int len)
+{
+  400c59:	55                   	push   rbp
+  400c5a:	48 89 e5             	mov    rbp,rsp
+  400c5d:	48 83 ec 20          	sub    rsp,0x20
+  400c61:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400c65:	89 75 e4             	mov    DWORD PTR [rbp-0x1c],esi
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+  400c68:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  400c6f:	eb 7c                	jmp    400ced <decreaseInt+0x94>
+    for(j = 1; j < len; j++)
+  400c71:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [rbp-0x4],0x1
+  400c78:	eb 67                	jmp    400ce1 <decreaseInt+0x88>
+      {
+	if(A[j-1] < A[j])
+  400c7a:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400c7d:	48 98                	cdqe   
+  400c7f:	48 c1 e0 02          	shl    rax,0x2
+  400c83:	48 8d 50 fc          	lea    rdx,[rax-0x4]
+  400c87:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400c8b:	48 01 d0             	add    rax,rdx
+  400c8e:	8b 10                	mov    edx,DWORD PTR [rax]
+  400c90:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400c93:	48 98                	cdqe   
+  400c95:	48 8d 0c 85 00 00 00 	lea    rcx,[rax*4+0x0]
+  400c9c:	00 
+  400c9d:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400ca1:	48 01 c8             	add    rax,rcx
+  400ca4:	8b 00                	mov    eax,DWORD PTR [rax]
+  400ca6:	39 c2                	cmp    edx,eax
+  400ca8:	7d 33                	jge    400cdd <decreaseInt+0x84>
+	  {
+	    swapInt(&A[j-1], &A[j]);
+  400caa:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400cad:	48 98                	cdqe   
+  400caf:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400cb6:	00 
+  400cb7:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400cbb:	48 01 c2             	add    rdx,rax
+  400cbe:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400cc1:	48 98                	cdqe   
+  400cc3:	48 c1 e0 02          	shl    rax,0x2
+  400cc7:	48 8d 48 fc          	lea    rcx,[rax-0x4]
+  400ccb:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400ccf:	48 01 c8             	add    rax,rcx
+  400cd2:	48 89 d6             	mov    rsi,rdx
+  400cd5:	48 89 c7             	mov    rdi,rax
+  400cd8:	e8 50 ff ff ff       	call   400c2d <swapInt>
+void decreaseInt(int A[], int len)
+{
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+    for(j = 1; j < len; j++)
+  400cdd:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  400ce1:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400ce4:	3b 45 e4             	cmp    eax,DWORD PTR [rbp-0x1c]
+  400ce7:	7c 91                	jl     400c7a <decreaseInt+0x21>
+
+void decreaseInt(int A[], int len)
+{
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+  400ce9:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  400ced:	8b 45 e4             	mov    eax,DWORD PTR [rbp-0x1c]
+  400cf0:	83 e8 01             	sub    eax,0x1
+  400cf3:	3b 45 f8             	cmp    eax,DWORD PTR [rbp-0x8]
+  400cf6:	0f 8f 75 ff ff ff    	jg     400c71 <decreaseInt+0x18>
+	  {
+	    swapInt(&A[j-1], &A[j]);
+	  }//end if
+
+      }//end nested for
+}//end decreaseInt
+  400cfc:	c9                   	leave  
+  400cfd:	c3                   	ret    
+
+0000000000400cfe <increaseInt>:
+
+
+void increaseInt(int A[], int len)
+{
+  400cfe:	55                   	push   rbp
+  400cff:	48 89 e5             	mov    rbp,rsp
+  400d02:	48 83 ec 20          	sub    rsp,0x20
+  400d06:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400d0a:	89 75 e4             	mov    DWORD PTR [rbp-0x1c],esi
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+  400d0d:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  400d14:	eb 7c                	jmp    400d92 <increaseInt+0x94>
+    for(j = 1; j < len; j++)
+  400d16:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [rbp-0x4],0x1
+  400d1d:	eb 67                	jmp    400d86 <increaseInt+0x88>
+      {
+	if(A[j-1] > A[j])
+  400d1f:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400d22:	48 98                	cdqe   
+  400d24:	48 c1 e0 02          	shl    rax,0x2
+  400d28:	48 8d 50 fc          	lea    rdx,[rax-0x4]
+  400d2c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400d30:	48 01 d0             	add    rax,rdx
+  400d33:	8b 10                	mov    edx,DWORD PTR [rax]
+  400d35:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400d38:	48 98                	cdqe   
+  400d3a:	48 8d 0c 85 00 00 00 	lea    rcx,[rax*4+0x0]
+  400d41:	00 
+  400d42:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400d46:	48 01 c8             	add    rax,rcx
+  400d49:	8b 00                	mov    eax,DWORD PTR [rax]
+  400d4b:	39 c2                	cmp    edx,eax
+  400d4d:	7e 33                	jle    400d82 <increaseInt+0x84>
+	  {
+	    swapInt(&A[j-1], &A[j]);
+  400d4f:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400d52:	48 98                	cdqe   
+  400d54:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400d5b:	00 
+  400d5c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400d60:	48 01 c2             	add    rdx,rax
+  400d63:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400d66:	48 98                	cdqe   
+  400d68:	48 c1 e0 02          	shl    rax,0x2
+  400d6c:	48 8d 48 fc          	lea    rcx,[rax-0x4]
+  400d70:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400d74:	48 01 c8             	add    rax,rcx
+  400d77:	48 89 d6             	mov    rsi,rdx
+  400d7a:	48 89 c7             	mov    rdi,rax
+  400d7d:	e8 ab fe ff ff       	call   400c2d <swapInt>
+void increaseInt(int A[], int len)
+{
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+    for(j = 1; j < len; j++)
+  400d82:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  400d86:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400d89:	3b 45 e4             	cmp    eax,DWORD PTR [rbp-0x1c]
+  400d8c:	7c 91                	jl     400d1f <increaseInt+0x21>
+
+void increaseInt(int A[], int len)
+{
+  int i, j;
+
+  for(i = 0; i < len - 1; i++)
+  400d8e:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  400d92:	8b 45 e4             	mov    eax,DWORD PTR [rbp-0x1c]
+  400d95:	83 e8 01             	sub    eax,0x1
+  400d98:	3b 45 f8             	cmp    eax,DWORD PTR [rbp-0x8]
+  400d9b:	0f 8f 75 ff ff ff    	jg     400d16 <increaseInt+0x18>
+	  {
+	    swapInt(&A[j-1], &A[j]);
+	  }//end if
+
+      }//end nested for
+}//end increaseInt
+  400da1:	c9                   	leave  
+  400da2:	c3                   	ret    
+
+0000000000400da3 <myfflush>:
+
+
+// my fflush
+void myfflush() {
+  400da3:	55                   	push   rbp
+  400da4:	48 89 e5             	mov    rbp,rsp
+  400da7:	48 83 ec 10          	sub    rsp,0x10
+  int ch;
+  while((ch = getchar()) && ch != '\n' && ch != EOF);
+  400dab:	e8 10 fa ff ff       	call   4007c0 <getchar@plt>
+  400db0:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  400db3:	83 7d fc 00          	cmp    DWORD PTR [rbp-0x4],0x0
+  400db7:	74 0c                	je     400dc5 <myfflush+0x22>
+  400db9:	83 7d fc 0a          	cmp    DWORD PTR [rbp-0x4],0xa
+  400dbd:	74 06                	je     400dc5 <myfflush+0x22>
+  400dbf:	83 7d fc ff          	cmp    DWORD PTR [rbp-0x4],0xffffffff
+  400dc3:	75 e6                	jne    400dab <myfflush+0x8>
+}
+  400dc5:	c9                   	leave  
+  400dc6:	c3                   	ret    
+
+0000000000400dc7 <myfopen>:
+/**
+ * Function: myfopen
+ * Open file and handle file error
+ */
+FILE *myfopen(char *name, char *mode)
+{
+  400dc7:	55                   	push   rbp
+  400dc8:	48 89 e5             	mov    rbp,rsp
+  400dcb:	48 83 ec 20          	sub    rsp,0x20
+  400dcf:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400dd3:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  FILE *f;
+
+  //open file
+  f = fopen(name, mode);
+  400dd7:	48 8b 55 e0          	mov    rdx,QWORD PTR [rbp-0x20]
+  400ddb:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400ddf:	48 89 d6             	mov    rsi,rdx
+  400de2:	48 89 c7             	mov    rdi,rax
+  400de5:	e8 06 fa ff ff       	call   4007f0 <fopen@plt>
+  400dea:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+  
+  //handle
+  if(f == NULL){
+  400dee:	48 83 7d f8 00       	cmp    QWORD PTR [rbp-0x8],0x0
+  400df3:	75 20                	jne    400e15 <myfopen+0x4e>
+    printf("File %s does not exist.\n", name);
+  400df5:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400df9:	48 89 c6             	mov    rsi,rax
+  400dfc:	bf 34 15 40 00       	mov    edi,0x401534
+  400e01:	b8 00 00 00 00       	mov    eax,0x0
+  400e06:	e8 85 f9 ff ff       	call   400790 <printf@plt>
+    exit(1);
+  400e0b:	bf 01 00 00 00       	mov    edi,0x1
+  400e10:	e8 0b fa ff ff       	call   400820 <exit@plt>
+  }//end if
+
+  return f;
+  400e15:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+
+}//end myfopen
+  400e19:	c9                   	leave  
+  400e1a:	c3                   	ret    
+
+0000000000400e1b <changeExtend>:
+ * changeExtend
+ * change the extend of a file name
+ * nokia.txt, dat -> nokia.dat
+ */
+void changeExtend(char *name, char *extend, char *newName)
+{
+  400e1b:	55                   	push   rbp
+  400e1c:	48 89 e5             	mov    rbp,rsp
+  400e1f:	48 83 ec 30          	sub    rsp,0x30
+  400e23:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400e27:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  400e2b:	48 89 55 d8          	mov    QWORD PTR [rbp-0x28],rdx
+  int i = 0;
+  400e2f:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+
+  do{
+    newName[i] = name[i];
+  400e36:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400e39:	48 63 d0             	movsxd rdx,eax
+  400e3c:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400e40:	48 01 c2             	add    rdx,rax
+  400e43:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400e46:	48 63 c8             	movsxd rcx,eax
+  400e49:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400e4d:	48 01 c8             	add    rax,rcx
+  400e50:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400e53:	88 02                	mov    BYTE PTR [rdx],al
+    i++;
+  400e55:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  }while(name[i] != '.');
+  400e59:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400e5c:	48 63 d0             	movsxd rdx,eax
+  400e5f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400e63:	48 01 d0             	add    rax,rdx
+  400e66:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400e69:	3c 2e                	cmp    al,0x2e
+  400e6b:	75 c9                	jne    400e36 <changeExtend+0x1b>
+  newName[i] = '.';
+  400e6d:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400e70:	48 63 d0             	movsxd rdx,eax
+  400e73:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400e77:	48 01 d0             	add    rax,rdx
+  400e7a:	c6 00 2e             	mov    BYTE PTR [rax],0x2e
+  strcat(newName, extend);
+  400e7d:	48 8b 55 e0          	mov    rdx,QWORD PTR [rbp-0x20]
+  400e81:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400e85:	48 89 d6             	mov    rsi,rdx
+  400e88:	48 89 c7             	mov    rdi,rax
+  400e8b:	e8 80 f9 ff ff       	call   400810 <strcat@plt>
+    
+}//end changeExtend
+  400e90:	c9                   	leave  
+  400e91:	c3                   	ret    
+
+0000000000400e92 <generateData>:
+
+
+void generateData(int *A, char *name, int low, int high, int n)
+{
+  400e92:	55                   	push   rbp
+  400e93:	48 89 e5             	mov    rbp,rsp
+  400e96:	53                   	push   rbx
+  400e97:	48 83 ec 38          	sub    rsp,0x38
+  400e9b:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
+  400e9f:	48 89 75 d0          	mov    QWORD PTR [rbp-0x30],rsi
+  400ea3:	89 55 cc             	mov    DWORD PTR [rbp-0x34],edx
+  400ea6:	89 4d c8             	mov    DWORD PTR [rbp-0x38],ecx
+  400ea9:	44 89 45 c4          	mov    DWORD PTR [rbp-0x3c],r8d
+  
+  int i;
+  FILE *f;
+  int range = high - low + 1;
+  400ead:	8b 45 cc             	mov    eax,DWORD PTR [rbp-0x34]
+  400eb0:	8b 55 c8             	mov    edx,DWORD PTR [rbp-0x38]
+  400eb3:	29 c2                	sub    edx,eax
+  400eb5:	89 d0                	mov    eax,edx
+  400eb7:	83 c0 01             	add    eax,0x1
+  400eba:	89 45 e4             	mov    DWORD PTR [rbp-0x1c],eax
+
+  //open file to write
+  f = myfopen(name, "w");
+  400ebd:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+  400ec1:	be 4d 15 40 00       	mov    esi,0x40154d
+  400ec6:	48 89 c7             	mov    rdi,rax
+  400ec9:	e8 f9 fe ff ff       	call   400dc7 <myfopen>
+  400ece:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+
+  for(i = 0; i < n; i++){
+  400ed2:	c7 45 e0 00 00 00 00 	mov    DWORD PTR [rbp-0x20],0x0
+  400ed9:	eb 55                	jmp    400f30 <generateData+0x9e>
+    A[i] = rand()%range + low;
+  400edb:	8b 45 e0             	mov    eax,DWORD PTR [rbp-0x20]
+  400ede:	48 98                	cdqe   
+  400ee0:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400ee7:	00 
+  400ee8:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400eec:	48 8d 1c 02          	lea    rbx,[rdx+rax*1]
+  400ef0:	e8 3b f9 ff ff       	call   400830 <rand@plt>
+  400ef5:	99                   	cdq    
+  400ef6:	f7 7d e4             	idiv   DWORD PTR [rbp-0x1c]
+  400ef9:	8b 45 cc             	mov    eax,DWORD PTR [rbp-0x34]
+  400efc:	01 d0                	add    eax,edx
+  400efe:	89 03                	mov    DWORD PTR [rbx],eax
+    fprintf(f, "%d ", A[i]);
+  400f00:	8b 45 e0             	mov    eax,DWORD PTR [rbp-0x20]
+  400f03:	48 98                	cdqe   
+  400f05:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400f0c:	00 
+  400f0d:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  400f11:	48 01 d0             	add    rax,rdx
+  400f14:	8b 10                	mov    edx,DWORD PTR [rax]
+  400f16:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400f1a:	be 4f 15 40 00       	mov    esi,0x40154f
+  400f1f:	48 89 c7             	mov    rdi,rax
+  400f22:	b8 00 00 00 00       	mov    eax,0x0
+  400f27:	e8 a4 f8 ff ff       	call   4007d0 <fprintf@plt>
+  int range = high - low + 1;
+
+  //open file to write
+  f = myfopen(name, "w");
+
+  for(i = 0; i < n; i++){
+  400f2c:	83 45 e0 01          	add    DWORD PTR [rbp-0x20],0x1
+  400f30:	8b 45 e0             	mov    eax,DWORD PTR [rbp-0x20]
+  400f33:	3b 45 c4             	cmp    eax,DWORD PTR [rbp-0x3c]
+  400f36:	7c a3                	jl     400edb <generateData+0x49>
+    A[i] = rand()%range + low;
+    fprintf(f, "%d ", A[i]);
+  }
+
+  fclose(f);
+  400f38:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400f3c:	48 89 c7             	mov    rdi,rax
+  400f3f:	e8 1c f8 ff ff       	call   400760 <fclose@plt>
+
+}
+  400f44:	48 83 c4 38          	add    rsp,0x38
+  400f48:	5b                   	pop    rbx
+  400f49:	5d                   	pop    rbp
+  400f4a:	c3                   	ret    
+
+0000000000400f4b <getTokens>:
+
+
+int getTokens(char *buffer, char tokens[][200], char ch)
+{
+  400f4b:	55                   	push   rbp
+  400f4c:	48 89 e5             	mov    rbp,rsp
+  400f4f:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  400f53:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  400f57:	89 d0                	mov    eax,edx
+  400f59:	88 45 dc             	mov    BYTE PTR [rbp-0x24],al
+  
+  int i = 0;
+  400f5c:	c7 45 f4 00 00 00 00 	mov    DWORD PTR [rbp-0xc],0x0
+  int j = 0;
+  400f63:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  int index = 0;
+  400f6a:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+
+  while(buffer[i] != '\n' && buffer[i] != '\0'){
+  400f71:	e9 a2 00 00 00       	jmp    401018 <getTokens+0xcd>
+
+    if(buffer[i] == ch){
+  400f76:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400f79:	48 63 d0             	movsxd rdx,eax
+  400f7c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  400f80:	48 01 d0             	add    rax,rdx
+  400f83:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  400f86:	3a 45 dc             	cmp    al,BYTE PTR [rbp-0x24]
+  400f89:	75 43                	jne    400fce <getTokens+0x83>
+      tokens[index][j] = '\0';
+  400f8b:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400f8e:	48 63 d0             	movsxd rdx,eax
+  400f91:	48 89 d0             	mov    rax,rdx
+  400f94:	48 c1 e0 02          	shl    rax,0x2
+  400f98:	48 01 d0             	add    rax,rdx
+  400f9b:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400fa2:	00 
+  400fa3:	48 01 d0             	add    rax,rdx
+  400fa6:	48 c1 e0 03          	shl    rax,0x3
+  400faa:	48 89 c2             	mov    rdx,rax
+  400fad:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  400fb1:	48 01 c2             	add    rdx,rax
+  400fb4:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  400fb7:	48 98                	cdqe   
+  400fb9:	c6 04 02 00          	mov    BYTE PTR [rdx+rax*1],0x0
+      index++;
+  400fbd:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+      i++;
+  400fc1:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
+      j = 0;
+  400fc5:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+      continue;
+  400fcc:	eb 4a                	jmp    401018 <getTokens+0xcd>
+    }
+
+    tokens[index][j] = buffer[i];
+  400fce:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  400fd1:	48 63 d0             	movsxd rdx,eax
+  400fd4:	48 89 d0             	mov    rax,rdx
+  400fd7:	48 c1 e0 02          	shl    rax,0x2
+  400fdb:	48 01 d0             	add    rax,rdx
+  400fde:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  400fe5:	00 
+  400fe6:	48 01 d0             	add    rax,rdx
+  400fe9:	48 c1 e0 03          	shl    rax,0x3
+  400fed:	48 89 c2             	mov    rdx,rax
+  400ff0:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  400ff4:	48 8d 0c 02          	lea    rcx,[rdx+rax*1]
+  400ff8:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  400ffb:	48 63 d0             	movsxd rdx,eax
+  400ffe:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401002:	48 01 d0             	add    rax,rdx
+  401005:	0f b6 10             	movzx  edx,BYTE PTR [rax]
+  401008:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  40100b:	48 98                	cdqe   
+  40100d:	88 14 01             	mov    BYTE PTR [rcx+rax*1],dl
+    i++;
+  401010:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
+    j++;
+  401014:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  
+  int i = 0;
+  int j = 0;
+  int index = 0;
+
+  while(buffer[i] != '\n' && buffer[i] != '\0'){
+  401018:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  40101b:	48 63 d0             	movsxd rdx,eax
+  40101e:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401022:	48 01 d0             	add    rax,rdx
+  401025:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  401028:	3c 0a                	cmp    al,0xa
+  40102a:	74 18                	je     401044 <getTokens+0xf9>
+  40102c:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  40102f:	48 63 d0             	movsxd rdx,eax
+  401032:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401036:	48 01 d0             	add    rax,rdx
+  401039:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  40103c:	84 c0                	test   al,al
+  40103e:	0f 85 32 ff ff ff    	jne    400f76 <getTokens+0x2b>
+    i++;
+    j++;
+
+  }//end while
+
+  tokens[index][j] = '\0';
+  401044:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  401047:	48 63 d0             	movsxd rdx,eax
+  40104a:	48 89 d0             	mov    rax,rdx
+  40104d:	48 c1 e0 02          	shl    rax,0x2
+  401051:	48 01 d0             	add    rax,rdx
+  401054:	48 8d 14 85 00 00 00 	lea    rdx,[rax*4+0x0]
+  40105b:	00 
+  40105c:	48 01 d0             	add    rax,rdx
+  40105f:	48 c1 e0 03          	shl    rax,0x3
+  401063:	48 89 c2             	mov    rdx,rax
+  401066:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  40106a:	48 01 c2             	add    rdx,rax
+  40106d:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  401070:	48 98                	cdqe   
+  401072:	c6 04 02 00          	mov    BYTE PTR [rdx+rax*1],0x0
+
+  return index+1;
+  401076:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  401079:	83 c0 01             	add    eax,0x1
+
+}
+  40107c:	5d                   	pop    rbp
+  40107d:	c3                   	ret    
+
+000000000040107e <inputChoice>:
+
+
+char inputChoice(char lowBound, char highBound, char *message)
+{
+  40107e:	55                   	push   rbp
+  40107f:	48 89 e5             	mov    rbp,rsp
+  401082:	48 83 ec 20          	sub    rsp,0x20
+  401086:	89 f9                	mov    ecx,edi
+  401088:	89 f0                	mov    eax,esi
+  40108a:	48 89 55 e0          	mov    QWORD PTR [rbp-0x20],rdx
+  40108e:	88 4d ec             	mov    BYTE PTR [rbp-0x14],cl
+  401091:	88 45 e8             	mov    BYTE PTR [rbp-0x18],al
+
+  char choice;
+  do{
+    scanf("%c", &choice);
+  401094:	48 8d 45 ff          	lea    rax,[rbp-0x1]
+  401098:	48 89 c6             	mov    rsi,rax
+  40109b:	bf 53 15 40 00       	mov    edi,0x401553
+  4010a0:	b8 00 00 00 00       	mov    eax,0x0
+  4010a5:	e8 56 f7 ff ff       	call   400800 <__isoc99_scanf@plt>
+    myfflush();
+  4010aa:	b8 00 00 00 00       	mov    eax,0x0
+  4010af:	e8 ef fc ff ff       	call   400da3 <myfflush>
+    if((choice < lowBound) || (choice > highBound)) printf("%s\n", message);
+  4010b4:	0f b6 45 ff          	movzx  eax,BYTE PTR [rbp-0x1]
+  4010b8:	3a 45 ec             	cmp    al,BYTE PTR [rbp-0x14]
+  4010bb:	7c 09                	jl     4010c6 <inputChoice+0x48>
+  4010bd:	0f b6 45 ff          	movzx  eax,BYTE PTR [rbp-0x1]
+  4010c1:	3a 45 e8             	cmp    al,BYTE PTR [rbp-0x18]
+  4010c4:	7e 0c                	jle    4010d2 <inputChoice+0x54>
+  4010c6:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  4010ca:	48 89 c7             	mov    rdi,rax
+  4010cd:	e8 7e f6 ff ff       	call   400750 <puts@plt>
+  }while((choice < lowBound) || (choice > highBound));
+  4010d2:	0f b6 45 ff          	movzx  eax,BYTE PTR [rbp-0x1]
+  4010d6:	3a 45 ec             	cmp    al,BYTE PTR [rbp-0x14]
+  4010d9:	7c b9                	jl     401094 <inputChoice+0x16>
+  4010db:	0f b6 45 ff          	movzx  eax,BYTE PTR [rbp-0x1]
+  4010df:	3a 45 e8             	cmp    al,BYTE PTR [rbp-0x18]
+  4010e2:	7f b0                	jg     401094 <inputChoice+0x16>
+
+  return choice;
+  4010e4:	0f b6 45 ff          	movzx  eax,BYTE PTR [rbp-0x1]
+
+}//end inputChoice
+  4010e8:	c9                   	leave  
+  4010e9:	c3                   	ret    
+
+00000000004010ea <inputInt>:
+
+int inputInt(char *prompt, int lowBound, int highBound, char *message)
+{
+  4010ea:	55                   	push   rbp
+  4010eb:	48 89 e5             	mov    rbp,rsp
+  4010ee:	48 83 ec 30          	sub    rsp,0x30
+  4010f2:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  4010f6:	89 75 e4             	mov    DWORD PTR [rbp-0x1c],esi
+  4010f9:	89 55 e0             	mov    DWORD PTR [rbp-0x20],edx
+  4010fc:	48 89 4d d8          	mov    QWORD PTR [rbp-0x28],rcx
+
+  int choice;
+  do{
+    printf("%s", prompt);
+  401100:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401104:	48 89 c6             	mov    rsi,rax
+  401107:	bf 56 15 40 00       	mov    edi,0x401556
+  40110c:	b8 00 00 00 00       	mov    eax,0x0
+  401111:	e8 7a f6 ff ff       	call   400790 <printf@plt>
+    scanf("%d", &choice);
+  401116:	48 8d 45 fc          	lea    rax,[rbp-0x4]
+  40111a:	48 89 c6             	mov    rsi,rax
+  40111d:	bf 59 15 40 00       	mov    edi,0x401559
+  401122:	b8 00 00 00 00       	mov    eax,0x0
+  401127:	e8 d4 f6 ff ff       	call   400800 <__isoc99_scanf@plt>
+    myfflush();
+  40112c:	b8 00 00 00 00       	mov    eax,0x0
+  401131:	e8 6d fc ff ff       	call   400da3 <myfflush>
+    if((choice < lowBound) || (choice > highBound)) printf("%s\n", message);
+  401136:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  401139:	3b 45 e4             	cmp    eax,DWORD PTR [rbp-0x1c]
+  40113c:	7c 08                	jl     401146 <inputInt+0x5c>
+  40113e:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  401141:	3b 45 e0             	cmp    eax,DWORD PTR [rbp-0x20]
+  401144:	7e 0c                	jle    401152 <inputInt+0x68>
+  401146:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  40114a:	48 89 c7             	mov    rdi,rax
+  40114d:	e8 fe f5 ff ff       	call   400750 <puts@plt>
+  }while((choice < lowBound) || (choice > highBound));
+  401152:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  401155:	3b 45 e4             	cmp    eax,DWORD PTR [rbp-0x1c]
+  401158:	7c a6                	jl     401100 <inputInt+0x16>
+  40115a:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  40115d:	3b 45 e0             	cmp    eax,DWORD PTR [rbp-0x20]
+  401160:	7f 9e                	jg     401100 <inputInt+0x16>
+
+  return choice;
+  401162:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+
+}//end inputInt
+  401165:	c9                   	leave  
+  401166:	c3                   	ret    
+
+0000000000401167 <toString>:
+
+
+void toString(int a, char* buffer)
+{
+  401167:	55                   	push   rbp
+  401168:	48 89 e5             	mov    rbp,rsp
+  40116b:	53                   	push   rbx
+  40116c:	89 7d e4             	mov    DWORD PTR [rbp-0x1c],edi
+  40116f:	48 89 75 d8          	mov    QWORD PTR [rbp-0x28],rsi
+  int num = 1;
+  401173:	c7 45 e8 01 00 00 00 	mov    DWORD PTR [rbp-0x18],0x1
+  int i=0;
+  40117a:	c7 45 ec 00 00 00 00 	mov    DWORD PTR [rbp-0x14],0x0
+  int mod;
+  int k = 10;
+  401181:	c7 45 f0 0a 00 00 00 	mov    DWORD PTR [rbp-0x10],0xa
+  while(k <= a){
+  401188:	eb 13                	jmp    40119d <toString+0x36>
+    k*=10;
+  40118a:	8b 55 f0             	mov    edx,DWORD PTR [rbp-0x10]
+  40118d:	89 d0                	mov    eax,edx
+  40118f:	c1 e0 02             	shl    eax,0x2
+  401192:	01 d0                	add    eax,edx
+  401194:	01 c0                	add    eax,eax
+  401196:	89 45 f0             	mov    DWORD PTR [rbp-0x10],eax
+    num++;
+  401199:	83 45 e8 01          	add    DWORD PTR [rbp-0x18],0x1
+{
+  int num = 1;
+  int i=0;
+  int mod;
+  int k = 10;
+  while(k <= a){
+  40119d:	8b 45 f0             	mov    eax,DWORD PTR [rbp-0x10]
+  4011a0:	3b 45 e4             	cmp    eax,DWORD PTR [rbp-0x1c]
+  4011a3:	7e e5                	jle    40118a <toString+0x23>
+    k*=10;
+    num++;
+  }
+
+  do{
+    mod = a/(k/10);
+  4011a5:	8b 4d f0             	mov    ecx,DWORD PTR [rbp-0x10]
+  4011a8:	ba 67 66 66 66       	mov    edx,0x66666667
+  4011ad:	89 c8                	mov    eax,ecx
+  4011af:	f7 ea                	imul   edx
+  4011b1:	c1 fa 02             	sar    edx,0x2
+  4011b4:	89 c8                	mov    eax,ecx
+  4011b6:	c1 f8 1f             	sar    eax,0x1f
+  4011b9:	89 d3                	mov    ebx,edx
+  4011bb:	29 c3                	sub    ebx,eax
+  4011bd:	8b 45 e4             	mov    eax,DWORD PTR [rbp-0x1c]
+  4011c0:	99                   	cdq    
+  4011c1:	f7 fb                	idiv   ebx
+  4011c3:	89 45 f4             	mov    DWORD PTR [rbp-0xc],eax
+    buffer[i] = (char) mod+'0';
+  4011c6:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  4011c9:	48 63 d0             	movsxd rdx,eax
+  4011cc:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  4011d0:	48 01 c2             	add    rdx,rax
+  4011d3:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  4011d6:	83 c0 30             	add    eax,0x30
+  4011d9:	88 02                	mov    BYTE PTR [rdx],al
+    i++;
+  4011db:	83 45 ec 01          	add    DWORD PTR [rbp-0x14],0x1
+    a = a%(k/10);
+  4011df:	8b 4d f0             	mov    ecx,DWORD PTR [rbp-0x10]
+  4011e2:	ba 67 66 66 66       	mov    edx,0x66666667
+  4011e7:	89 c8                	mov    eax,ecx
+  4011e9:	f7 ea                	imul   edx
+  4011eb:	c1 fa 02             	sar    edx,0x2
+  4011ee:	89 c8                	mov    eax,ecx
+  4011f0:	c1 f8 1f             	sar    eax,0x1f
+  4011f3:	89 d1                	mov    ecx,edx
+  4011f5:	29 c1                	sub    ecx,eax
+  4011f7:	8b 45 e4             	mov    eax,DWORD PTR [rbp-0x1c]
+  4011fa:	99                   	cdq    
+  4011fb:	f7 f9                	idiv   ecx
+  4011fd:	89 55 e4             	mov    DWORD PTR [rbp-0x1c],edx
+    k /= 10;
+  401200:	8b 4d f0             	mov    ecx,DWORD PTR [rbp-0x10]
+  401203:	ba 67 66 66 66       	mov    edx,0x66666667
+  401208:	89 c8                	mov    eax,ecx
+  40120a:	f7 ea                	imul   edx
+  40120c:	c1 fa 02             	sar    edx,0x2
+  40120f:	89 c8                	mov    eax,ecx
+  401211:	c1 f8 1f             	sar    eax,0x1f
+  401214:	29 c2                	sub    edx,eax
+  401216:	89 d0                	mov    eax,edx
+  401218:	89 45 f0             	mov    DWORD PTR [rbp-0x10],eax
+  }while(k > 1);
+  40121b:	83 7d f0 01          	cmp    DWORD PTR [rbp-0x10],0x1
+  40121f:	7f 84                	jg     4011a5 <toString+0x3e>
+
+  buffer[i] = '\0';
+  401221:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+  401224:	48 63 d0             	movsxd rdx,eax
+  401227:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+  40122b:	48 01 d0             	add    rax,rdx
+  40122e:	c6 00 00             	mov    BYTE PTR [rax],0x0
+  
+}
+  401231:	5b                   	pop    rbx
+  401232:	5d                   	pop    rbp
+  401233:	c3                   	ret    
+
+0000000000401234 <swap>:
+
+
+void swap(int *a, int *b)
+{
+  401234:	55                   	push   rbp
+  401235:	48 89 e5             	mov    rbp,rsp
+  401238:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+  40123c:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  int tmp;
+  tmp = *a;
+  401240:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401244:	8b 00                	mov    eax,DWORD PTR [rax]
+  401246:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  *a = *b;
+  401249:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  40124d:	8b 10                	mov    edx,DWORD PTR [rax]
+  40124f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401253:	89 10                	mov    DWORD PTR [rax],edx
+  *b = tmp;
+  401255:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+  401259:	8b 55 fc             	mov    edx,DWORD PTR [rbp-0x4]
+  40125c:	89 10                	mov    DWORD PTR [rax],edx
+}
+  40125e:	5d                   	pop    rbp
+  40125f:	c3                   	ret    
+
+0000000000401260 <countLine>:
+
+int countLine(char *fileName)
+{
+  401260:	55                   	push   rbp
+  401261:	48 89 e5             	mov    rbp,rsp
+  401264:	48 83 ec 20          	sub    rsp,0x20
+  401268:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+
+  int count = 0;
+  40126c:	c7 45 f0 00 00 00 00 	mov    DWORD PTR [rbp-0x10],0x0
+  int ch;
+
+  FILE *f;
+  
+  f = myfopen(fileName, "r");
+  401273:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401277:	be 5c 15 40 00       	mov    esi,0x40155c
+  40127c:	48 89 c7             	mov    rdi,rax
+  40127f:	e8 43 fb ff ff       	call   400dc7 <myfopen>
+  401284:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+  while((ch = fgetc(f)) != EOF)
+  401288:	eb 0a                	jmp    401294 <countLine+0x34>
+    if(ch == '\n') count++;
+  40128a:	83 7d f4 0a          	cmp    DWORD PTR [rbp-0xc],0xa
+  40128e:	75 04                	jne    401294 <countLine+0x34>
+  401290:	83 45 f0 01          	add    DWORD PTR [rbp-0x10],0x1
+  int ch;
+
+  FILE *f;
+  
+  f = myfopen(fileName, "r");
+  while((ch = fgetc(f)) != EOF)
+  401294:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+  401298:	48 89 c7             	mov    rdi,rax
+  40129b:	e8 00 f5 ff ff       	call   4007a0 <fgetc@plt>
+  4012a0:	89 45 f4             	mov    DWORD PTR [rbp-0xc],eax
+  4012a3:	83 7d f4 ff          	cmp    DWORD PTR [rbp-0xc],0xffffffff
+  4012a7:	75 e1                	jne    40128a <countLine+0x2a>
+    if(ch == '\n') count++;
+  fclose(f);
+  4012a9:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+  4012ad:	48 89 c7             	mov    rdi,rax
+  4012b0:	e8 ab f4 ff ff       	call   400760 <fclose@plt>
+
+  return count;
+  4012b5:	8b 45 f0             	mov    eax,DWORD PTR [rbp-0x10]
+
+}//end count
+  4012b8:	c9                   	leave  
+  4012b9:	c3                   	ret    
+
+00000000004012ba <toLower>:
+
+
+void toLower(char *buffer)
+{
+  4012ba:	55                   	push   rbp
+  4012bb:	48 89 e5             	mov    rbp,rsp
+  4012be:	48 83 ec 20          	sub    rsp,0x20
+  4012c2:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+
+  int i;
+  int len = strlen(buffer);
+  4012c6:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4012ca:	48 89 c7             	mov    rdi,rax
+  4012cd:	e8 9e f4 ff ff       	call   400770 <strlen@plt>
+  4012d2:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+
+  for(i = 0; i < len; i++){
+  4012d5:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  4012dc:	eb 57                	jmp    401335 <toLower+0x7b>
+    if(isupper(buffer[i])) buffer[i] += 32;
+  4012de:	e8 5d f5 ff ff       	call   400840 <__ctype_b_loc@plt>
+  4012e3:	48 8b 00             	mov    rax,QWORD PTR [rax]
+  4012e6:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  4012e9:	48 63 ca             	movsxd rcx,edx
+  4012ec:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
+  4012f0:	48 01 ca             	add    rdx,rcx
+  4012f3:	0f b6 12             	movzx  edx,BYTE PTR [rdx]
+  4012f6:	48 0f be d2          	movsx  rdx,dl
+  4012fa:	48 01 d2             	add    rdx,rdx
+  4012fd:	48 01 d0             	add    rax,rdx
+  401300:	0f b7 00             	movzx  eax,WORD PTR [rax]
+  401303:	0f b7 c0             	movzx  eax,ax
+  401306:	25 00 01 00 00       	and    eax,0x100
+  40130b:	85 c0                	test   eax,eax
+  40130d:	74 22                	je     401331 <toLower+0x77>
+  40130f:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  401312:	48 63 d0             	movsxd rdx,eax
+  401315:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401319:	48 01 c2             	add    rdx,rax
+  40131c:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  40131f:	48 63 c8             	movsxd rcx,eax
+  401322:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  401326:	48 01 c8             	add    rax,rcx
+  401329:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  40132c:	83 c0 20             	add    eax,0x20
+  40132f:	88 02                	mov    BYTE PTR [rdx],al
+{
+
+  int i;
+  int len = strlen(buffer);
+
+  for(i = 0; i < len; i++){
+  401331:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  401335:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  401338:	3b 45 fc             	cmp    eax,DWORD PTR [rbp-0x4]
+  40133b:	7c a1                	jl     4012de <toLower+0x24>
+    if(isupper(buffer[i])) buffer[i] += 32;
+  }
+
+}
+  40133d:	c9                   	leave  
+  40133e:	c3                   	ret    
+
+000000000040133f <toUpper>:
+
+void toUpper(char *buffer)
+{
+  40133f:	55                   	push   rbp
+  401340:	48 89 e5             	mov    rbp,rsp
+  401343:	48 83 ec 20          	sub    rsp,0x20
+  401347:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+
+  int i;
+  int len = strlen(buffer);
+  40134b:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  40134f:	48 89 c7             	mov    rdi,rax
+  401352:	e8 19 f4 ff ff       	call   400770 <strlen@plt>
+  401357:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+
+  for(i = 0; i < len; i++){
+  40135a:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  401361:	eb 57                	jmp    4013ba <toUpper+0x7b>
+    if(islower(buffer[i])) buffer[i] -= 32;
+  401363:	e8 d8 f4 ff ff       	call   400840 <__ctype_b_loc@plt>
+  401368:	48 8b 00             	mov    rax,QWORD PTR [rax]
+  40136b:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  40136e:	48 63 ca             	movsxd rcx,edx
+  401371:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
+  401375:	48 01 ca             	add    rdx,rcx
+  401378:	0f b6 12             	movzx  edx,BYTE PTR [rdx]
+  40137b:	48 0f be d2          	movsx  rdx,dl
+  40137f:	48 01 d2             	add    rdx,rdx
+  401382:	48 01 d0             	add    rax,rdx
+  401385:	0f b7 00             	movzx  eax,WORD PTR [rax]
+  401388:	0f b7 c0             	movzx  eax,ax
+  40138b:	25 00 02 00 00       	and    eax,0x200
+  401390:	85 c0                	test   eax,eax
+  401392:	74 22                	je     4013b6 <toUpper+0x77>
+  401394:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  401397:	48 63 d0             	movsxd rdx,eax
+  40139a:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  40139e:	48 01 c2             	add    rdx,rax
+  4013a1:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  4013a4:	48 63 c8             	movsxd rcx,eax
+  4013a7:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+  4013ab:	48 01 c8             	add    rax,rcx
+  4013ae:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+  4013b1:	83 e8 20             	sub    eax,0x20
+  4013b4:	88 02                	mov    BYTE PTR [rdx],al
+{
+
+  int i;
+  int len = strlen(buffer);
+
+  for(i = 0; i < len; i++){
+  4013b6:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  4013ba:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  4013bd:	3b 45 fc             	cmp    eax,DWORD PTR [rbp-0x4]
+  4013c0:	7c a1                	jl     401363 <toUpper+0x24>
+    if(islower(buffer[i])) buffer[i] -= 32;
+  }
+
+}
+  4013c2:	c9                   	leave  
+  4013c3:	c3                   	ret    
+
+00000000004013c4 <main>:
+#include<stdio.h>
+#include<stdlib.h>
+#include"/home/li/Cprograming/Library/luong.h"
+
+int main()
+{
+  4013c4:	55                   	push   rbp
+  4013c5:	48 89 e5             	mov    rbp,rsp
+  4013c8:	53                   	push   rbx
+  4013c9:	48 83 ec 38          	sub    rsp,0x38
+  4013cd:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+  4013d4:	00 00 
+  4013d6:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+  4013da:	31 c0                	xor    eax,eax
+  int a;
+  char buffer[20];
+
+  //printf("Enter a number: ");
+  a = inputInt("Enter a number: ", 0, 100, "range in 0-100");
+  4013dc:	b9 5e 15 40 00       	mov    ecx,0x40155e
+  4013e1:	ba 64 00 00 00       	mov    edx,0x64
+  4013e6:	be 00 00 00 00       	mov    esi,0x0
+  4013eb:	bf 6d 15 40 00       	mov    edi,0x40156d
+  4013f0:	e8 f5 fc ff ff       	call   4010ea <inputInt>
+  4013f5:	89 45 cc             	mov    DWORD PTR [rbp-0x34],eax
+  toString(a, buffer);
+  4013f8:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
+  4013fc:	8b 45 cc             	mov    eax,DWORD PTR [rbp-0x34]
+  4013ff:	48 89 d6             	mov    rsi,rdx
+  401402:	89 c7                	mov    edi,eax
+  401404:	e8 5e fd ff ff       	call   401167 <toString>
+  printf("buffer = %s\n", buffer);
+  401409:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  40140d:	48 89 c6             	mov    rsi,rax
+  401410:	bf 7e 15 40 00       	mov    edi,0x40157e
+  401415:	b8 00 00 00 00       	mov    eax,0x0
+  40141a:	e8 71 f3 ff ff       	call   400790 <printf@plt>
+    toString(a, buffer);
+    printf("buffer = %s\n", buffer);
+  }while(1);
+  */
+
+  printf("Enter a string: ");
+  40141f:	bf 8b 15 40 00       	mov    edi,0x40158b
+  401424:	b8 00 00 00 00       	mov    eax,0x0
+  401429:	e8 62 f3 ff ff       	call   400790 <printf@plt>
+  scanf("%[^\n]", buffer);
+  40142e:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  401432:	48 89 c6             	mov    rsi,rax
+  401435:	bf 9c 15 40 00       	mov    edi,0x40159c
+  40143a:	b8 00 00 00 00       	mov    eax,0x0
+  40143f:	e8 bc f3 ff ff       	call   400800 <__isoc99_scanf@plt>
+  myfflush();
+  401444:	b8 00 00 00 00       	mov    eax,0x0
+  401449:	e8 55 f9 ff ff       	call   400da3 <myfflush>
+  toLower(buffer);
+  40144e:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  401452:	48 89 c7             	mov    rdi,rax
+  401455:	e8 60 fe ff ff       	call   4012ba <toLower>
+  printf("buffer = %s\n", buffer);
+  40145a:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  40145e:	48 89 c6             	mov    rsi,rax
+  401461:	bf 7e 15 40 00       	mov    edi,0x40157e
+  401466:	b8 00 00 00 00       	mov    eax,0x0
+  40146b:	e8 20 f3 ff ff       	call   400790 <printf@plt>
+  toUpper(buffer);
+  401470:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  401474:	48 89 c7             	mov    rdi,rax
+  401477:	e8 c3 fe ff ff       	call   40133f <toUpper>
+  printf("buffer = %s\n", buffer);
+  40147c:	48 8d 45 d0          	lea    rax,[rbp-0x30]
+  401480:	48 89 c6             	mov    rsi,rax
+  401483:	bf 7e 15 40 00       	mov    edi,0x40157e
+  401488:	b8 00 00 00 00       	mov    eax,0x0
+  40148d:	e8 fe f2 ff ff       	call   400790 <printf@plt>
+
+}
+  401492:	48 8b 5d e8          	mov    rbx,QWORD PTR [rbp-0x18]
+  401496:	64 48 33 1c 25 28 00 	xor    rbx,QWORD PTR fs:0x28
+  40149d:	00 00 
+  40149f:	74 05                	je     4014a6 <main+0xe2>
+  4014a1:	e8 da f2 ff ff       	call   400780 <__stack_chk_fail@plt>
+  4014a6:	48 83 c4 38          	add    rsp,0x38
+  4014aa:	5b                   	pop    rbx
+  4014ab:	5d                   	pop    rbp
+  4014ac:	c3                   	ret    
+  4014ad:	0f 1f 00             	nop    DWORD PTR [rax]
+
+00000000004014b0 <__libc_csu_init>:
+  4014b0:	41 57                	push   r15
+  4014b2:	41 89 ff             	mov    r15d,edi
+  4014b5:	41 56                	push   r14
+  4014b7:	49 89 f6             	mov    r14,rsi
+  4014ba:	41 55                	push   r13
+  4014bc:	49 89 d5             	mov    r13,rdx
+  4014bf:	41 54                	push   r12
+  4014c1:	4c 8d 25 48 09 20 00 	lea    r12,[rip+0x200948]        # 601e10 <__frame_dummy_init_array_entry>
+  4014c8:	55                   	push   rbp
+  4014c9:	48 8d 2d 48 09 20 00 	lea    rbp,[rip+0x200948]        # 601e18 <__init_array_end>
+  4014d0:	53                   	push   rbx
+  4014d1:	4c 29 e5             	sub    rbp,r12
+  4014d4:	31 db                	xor    ebx,ebx
+  4014d6:	48 c1 fd 03          	sar    rbp,0x3
+  4014da:	48 83 ec 08          	sub    rsp,0x8
+  4014de:	e8 3d f2 ff ff       	call   400720 <_init>
+  4014e3:	48 85 ed             	test   rbp,rbp
+  4014e6:	74 1e                	je     401506 <__libc_csu_init+0x56>
+  4014e8:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+  4014ef:	00 
+  4014f0:	4c 89 ea             	mov    rdx,r13
+  4014f3:	4c 89 f6             	mov    rsi,r14
+  4014f6:	44 89 ff             	mov    edi,r15d
+  4014f9:	41 ff 14 dc          	call   QWORD PTR [r12+rbx*8]
+  4014fd:	48 83 c3 01          	add    rbx,0x1
+  401501:	48 39 eb             	cmp    rbx,rbp
+  401504:	75 ea                	jne    4014f0 <__libc_csu_init+0x40>
+  401506:	48 83 c4 08          	add    rsp,0x8
+  40150a:	5b                   	pop    rbx
+  40150b:	5d                   	pop    rbp
+  40150c:	41 5c                	pop    r12
+  40150e:	41 5d                	pop    r13
+  401510:	41 5e                	pop    r14
+  401512:	41 5f                	pop    r15
+  401514:	c3                   	ret    
+  401515:	66 66 2e 0f 1f 84 00 	data32 nop WORD PTR cs:[rax+rax*1+0x0]
+  40151c:	00 00 00 00 
+
+0000000000401520 <__libc_csu_fini>:
+  401520:	f3 c3                	repz ret 
+
+Disassembly of section .fini:
+
+0000000000401524 <_fini>:
+  401524:	48 83 ec 08          	sub    rsp,0x8
+  401528:	48 83 c4 08          	add    rsp,0x8
+  40152c:	c3                   	ret    

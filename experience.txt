@@ -1,0 +1,4 @@
++) khong the dung ham realloc(void *ptr, size); o ngoai ham main
++) khong the gan 2 string
++) khi lam phai khoi tao string bang '\0' vi du: name[20] = {'\0'}
++) o cuoi cau truc cua file thuong co ky tu xuong dong \n
