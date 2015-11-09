@@ -8,13 +8,12 @@ Graph createGraph()
 
 
 int insertEdge(Graph g, Jval v1, Jval v2,
-				int (*cmp1)(Jval, Jval),
-				int (*cmp2)(Jval, Jval))
+				int (*cmp)(Jval, Jval))
 {
 	Graph found;
 	Jval j_adj_list;
 	Jval j = new_jval_v(NULL);
-	found = jrb_find_gen(g, v1, cmp1);
+	found = jrb_find_gen(g, v1, cmp);
 
 	if(found == NULL){
 		/* if not found
@@ -25,11 +24,11 @@ int insertEdge(Graph g, Jval v1, Jval v2,
 
 		 // create a new adj_list
 		JRB adj_list = make_jrb();
-		jrb_insert_gen(adj_list, v2, j, cmp2);
+		jrb_insert_gen(adj_list, v2, j, cmp);
 		j_adj_list = new_jval_v(adj_list);
 
 		// add adjacent list to the tree
-		jrb_insert_gen(g, v1, j_adj_list, cmp1);
+		jrb_insert_gen(g, v1, j_adj_list, cmp);
 
 		return 0;
 
@@ -42,9 +41,9 @@ int insertEdge(Graph g, Jval v1, Jval v2,
 		*/
 
 		JRB adj_list = (JRB) jval_v(found->val);
-		found = jrb_find_gen(adj_list, v2, cmp2);
+		found = jrb_find_gen(adj_list, v2, cmp);
 		if(found == NULL){
-			jrb_insert_gen(adj_list, v2, j, cmp2);
+			jrb_insert_gen(adj_list, v2, j, cmp);
 			return 0;
 		}else return 1;
 	}
@@ -52,8 +51,7 @@ int insertEdge(Graph g, Jval v1, Jval v2,
 
 
 int addEdge(Graph g, Jval v1, Jval v2,
-			int (*cmp1)(Jval, Jval),
-			int (*cmp2)(Jval, Jval))
+			int (*cmp)(Jval, Jval))
 {
 	/* find key v1 in graph
 	if found, add v2 to the adjacent list of v1
@@ -63,8 +61,8 @@ int addEdge(Graph g, Jval v1, Jval v2,
 	int error_code1 = 0; // returned if error_code != 0
 	int error_code2 = 0;
 
-	error_code1 = insertEdge(g, v1, v2, cmp1, cmp2);
-	error_code2 = insertEdge(g, v2, v1, cmp1, cmp2);
+	error_code1 = insertEdge(g, v1, v2, cmp);
+	error_code2 = insertEdge(g, v2, v1, cmp);
 	
 	return error_code1 + error_code2;
 
@@ -72,15 +70,14 @@ int addEdge(Graph g, Jval v1, Jval v2,
 
 
 int adjacent(Graph g, Jval v1, Jval v2,
-				int (*cmp1)(Jval, Jval),
-				int (*cmp2)(Jval, Jval))
+				int (*cmp)(Jval, Jval))
 {
-	JRB found = jrb_find_gen(g, v1, cmp1);
+	JRB found = jrb_find_gen(g, v1, cmp);
 
 	if(found == NULL){
 		return 0;
 	}else{
-		found = jrb_find_gen((JRB) jval_v(found->val), v2, cmp2);
+		found = jrb_find_gen((JRB) jval_v(found->val), v2, cmp);
 		if(found == NULL) return 0;
 		else return 1;
 	}
@@ -136,11 +133,11 @@ int getAdjVerticesI(Graph g, Jval v, int* output,
 
 int addEdgeI(Graph g, int v1, int v2)
 {
-	return addEdge(g, ji(v1), ji(v2), &cmpInt, &cmpInt);
+	return addEdge(g, ji(v1), ji(v2), &cmpInt);
 }
 
 
 int adjacentI(Graph g, int v1, int v2)
 {
-	return adjacent(g, ji(v1), ji(v2), &cmpInt, &cmpInt);
+	return adjacent(g, ji(v1), ji(v2), &cmpInt);
 }

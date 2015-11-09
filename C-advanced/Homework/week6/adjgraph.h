@@ -10,12 +10,10 @@ typedef JRB Graph;
 Graph createGraph(); // create an empty rb tree
 
 int addEdge(Graph, Jval, Jval,
-			int (*cmp1)(Jval, Jval),
-			int (*cmp2)(Jval, Jval)); // add an edge to the graph
+			int (*cmp)(Jval, Jval)); // add an edge to the graph
 
 int adjacent(Graph, Jval, Jval,
-				int (*cmp1)(Jval, Jval),
-				int (*cmp2)(Jval, Jval)); // check if two vertices are adjacent
+				int (*cmp)(Jval, Jval)); // check if two vertices are adjacent
 
 JRB getAdjVertices(Graph, Jval,
 						int (*cmp)(Jval, Jval)); // get adjacent vertices
