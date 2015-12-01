@@ -232,7 +232,7 @@ void tsort(Graph g)
 
 	while(!dll_empty(queue)){
 		id = dequeue(queue);
-		printf("%s\n", getVertex(g, id));
+		printf("%s\n", getVertex(g, id));// thay bang function pointer
 		num = outDegree(g, id, output);
 		for(i = 0; i < num; i++){
 			tmp = jrb_find_int(vertices, output[i]);
@@ -270,4 +270,155 @@ double getWeight(Graph g, int v1, int v2)
 		return DBL_MAX;
 	}
 
+}
+
+
+/* return the node of g.vertices containing id
+null if not found
+*/
+JRB getVertexNode(Graph g, int id)
+{
+	JRB vertices = g.vertices;
+	JRB found = jrb_find_int(vertices, id);
+
+	if(found){
+		return found;
+	}else{
+		return NULL;
+	}
+}
+
+
+/* init graph for djistra algorithm */
+void initSingleSource(Graph g, int s)
+{
+	JRB vertices = g.vertices;
+	JRB v;
+	attrb a;
+
+	jrb_traverse(v, vertices){
+		a = getattrb(v);
+		a->d = DBL_MAX;
+		a->predecessor = NULL;
+	}
+
+	v = getVertexNode(g, s);
+	if(v){
+		a = getattrb(v);
+		a->d = 0;
+	}else{
+		printf("ERROR: node %d does not exist\n", s);
+		exit(1);
+	}
+}
+
+
+void relax(Graph g, int u, int v)
+{
+	JRB node_u = getVertexNode(g, u);
+	JRB node_v = getVertexNode(g, v);
+
+	if(!node_u){
+		printf("In relax function, node_u == NULL\n");
+		exit(1);
+	}
+
+	if(!node_v){
+		printf("In relax function, node_v == NULL\n");
+		exit(1);
+	}
+
+	attrb attrb_u = getattrb(node_u);
+	attrb attrb_v = getattrb(node_v);
+	double w = getWeight(g, u, v);
+
+	if(attrb_v->d > attrb_u->d + w){
+		attrb_v->d = attrb_u->d + w;
+		attrb_v->predecessor = node_u;
+	}
+
+}
+
+
+int getAdjVertices(Graph g, int id, int* output)
+{
+	JRB tmp;
+	int i;
+	JRB adjlist = getAdjList(g, id);
+	if(!adjlist){
+		return -1;
+	}
+	jrb_traverse(tmp, adjlist){
+		output[i] = jval_i(tmp->key);
+		i++;
+	}
+
+	return i;
+}
+
+
+int extractMin(Graph g, Dllist Q)
+{
+	int min = INT_MAX;
+	Dllist min_node;
+	JRB v;
+	int id;
+	Dllist tmp;
+	attrb a;
+
+	dll_traverse(tmp, Q){
+		v = getVertexNode(g, jval_i(tmp->val));
+		a = getattrb(v);
+		if(min > a->d){
+			min = a->d;
+			min_node = tmp;
+		}
+	}
+
+	id = jval_i(min_node->val);
+	dll_delete_node(min_node);
+
+	return id;
+}
+
+
+double shortestPath(Graph g, int s, int d, int *path, int *len)
+{
+	int i = 0;
+	int j, pre;
+	int u;
+	int n;
+	int adj_vertices[100];
+	double w = 0;
+	JRB tmp;
+	Dllist Q = new_dllist();
+	initSingleSource(g, s);
+	// add vertices to queue
+	jrb_traverse(tmp, g.vertices){
+		dll_append(Q, tmp->key);
+	}
+
+	pre = s;
+
+	while(!dll_empty(Q)){
+		u = extractMin(g, Q);
+		if(u != pre){
+			w += getWeight(g, pre, u);
+		}
+		pre = u;
+
+		path[i] = u;
+		i++;
+		if(u == d){
+			// reach the destination
+			*len = i;
+			return w;
+		}
+		n = getAdjVertices(g, u, adj_vertices);
+		for(j = 0; j < n; j++){
+			relax(g, u, adj_vertices[j]);
+		}
+	}
+
+	return DBL_MAX;
 }

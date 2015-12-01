@@ -15,6 +15,7 @@ typedef struct{
 	char *name;
 	int ind;
 	double d;
+	JRB predecessor;
 } at;
 
 typedef at* attrb;
@@ -34,8 +35,13 @@ char *getVertex(Graph, int);
 int hasEdge(Graph, int, int);
 void dropGraph(Graph);
 void tsort(Graph);
+JRB getVertexNode(Graph g, int id);
 attrb getattrb(JRB);
 double getWeight(Graph, int, int);
+double shortestPath(Graph, int, int, int *path, int *len);
+JRB getVertexNode(Graph, int);
+JRB getAdjList(Graph , int);
+int getAdjVertices(Graph, int, int*);
 
 //void addNode(Graph, int, int, char*, char*);
 //int getComponents(Graph);
