@@ -41,7 +41,9 @@ double getWeight(Graph, int, int);
 double shortestPath(Graph, int, int, int *path, int *len);
 JRB getVertexNode(Graph, int);
 JRB getAdjList(Graph , int);
+/* return -1 if there is no adj vertices */
 int getAdjVertices(Graph, int, int*);
+
 
 //void addNode(Graph, int, int, char*, char*);
 //int getComponents(Graph);
