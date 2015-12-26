@@ -53,10 +53,15 @@ void insertEdge(Graph g, int v1, int v2, double w)
 Jval jv(char *s)
 {
 	// init struct
-	char *sm = (char*) malloc(strlen(s));
-	strcpy(sm, s);
 	attrb a = (attrb) malloc(sizeof(attrb));
-	a->name = sm;
+	if(s){
+		char *sm = (char*) malloc(strlen(s));
+		strcpy(sm, s);		
+		a->name = sm;
+	}else{
+		a->name = NULL;
+	}
+	
 	a->ind = 0;
 	a->d = DBL_MAX;
 	//add to jval
@@ -84,6 +89,10 @@ void addVertex(Graph g, int id, char *name)
 		jrb_insert_int(vertices, id, jv(name));
 	}else{
 		// if found, change the data of node id
+		if(!name){
+			printf("WARNING: name is null\n");
+			return;
+		} 
 		attrb a = getattrb(found);
 		if(strcmp(a->name, name)){
 			free(a->name);
@@ -422,3 +431,46 @@ double shortestPath(Graph g, int s, int d, int *path, int *len)
 
 	return DBL_MAX;
 }
+
+/*
+double huffmanShortestPath(Graph g, int s, int d, int *path, int *len)
+{
+	int i = 0;
+	int j, pre;
+	int u, n;
+	int* output[100];
+	int adj_vertices[100];
+	double w = 0;
+	JRB tmp;
+	Dllist Q = new_dllist();
+	initSingleSource(g, s);
+	// add vertices to queue
+	jrb_traverse(tmp, g.vertices){
+		dll_append(Q, tmp->key);
+	}
+
+	pre = s;
+
+	while(!dll_empty(Q)){
+		u = extractMin(g, Q);
+		if(u != pre){
+			w += getWeight(g, pre, u);
+		}
+		pre = u;
+
+		path[i] = u;
+		i++;
+		if(outDegree(g, u, output) == 0 && u == d){
+			// reach the destination
+			*len = i;
+			return w;
+		}
+		n = getAdjVertices(g, u, adj_vertices);
+		for(j = 0; j < n; j++){
+			relax(g, u, adj_vertices[j]);
+		}
+	}
+
+	return DBL_MAX;
+}
+*/
