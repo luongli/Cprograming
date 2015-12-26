@@ -7,9 +7,8 @@
 
 
 #define DBL_MAX LONG_MAX
-#define ji(i) new_jval_i(i)
-#define jd(d) new_jval_d(d)
-#define enqueue(queue, id) dll_append(queue, new_jval_i(id))
+#define ji(i) new_jval_i(i) // make new jval of int
+#define jd(d) new_jval_d(d) // make new jval of double
 
 typedef struct{
 	char *name;
@@ -25,6 +24,22 @@ typedef struct{
 	JRB edges;
 	JRB vertices;
 } Graph;
+
+
+/*
+The structure of this graph is as follows:
+
+Edges of the graph is a JRB tree with the key of each node is a vertex.
+Its adjacent verteces are stored in a jval which is a pointer to another JRB tree.
+This nested tree holds the adj vertices in the key of each node,
+and the weight in the data or val of each node
+
+Vertices of the graph is a JRB tree with the key is the id of the node.
+This id is identical to the id in the edges tree.
+The val of each node is a struct that hold all the necessary information about
+each vertices.
+*/
+
 
 Graph createGraph();
 void addVertex(Graph, int, char *);
@@ -43,7 +58,6 @@ JRB getVertexNode(Graph, int);
 JRB getAdjList(Graph , int);
 /* return -1 if there is no adj vertices */
 int getAdjVertices(Graph, int, int*);
-
 
 //void addNode(Graph, int, int, char*, char*);
 //int getComponents(Graph);

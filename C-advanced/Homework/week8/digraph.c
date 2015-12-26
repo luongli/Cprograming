@@ -1,6 +1,9 @@
 #include "digraph.h"
 
 
+#define enqueue(queue, id) dll_append(queue, new_jval_i(id))
+
+
 Graph createGraph()
 {
 	Graph g;
@@ -75,7 +78,8 @@ attrb getattrb(JRB node)
 }
 
 /* insert new node to graph, if the node is already exist,
-change its data */
+change its data
+This function should use a function pointer to initialize vertices */
 void addVertex(Graph g, int id, char *name)
 {
 	JRB vertices = g.vertices;
@@ -432,45 +436,3 @@ double shortestPath(Graph g, int s, int d, int *path, int *len)
 	return DBL_MAX;
 }
 
-/*
-double huffmanShortestPath(Graph g, int s, int d, int *path, int *len)
-{
-	int i = 0;
-	int j, pre;
-	int u, n;
-	int* output[100];
-	int adj_vertices[100];
-	double w = 0;
-	JRB tmp;
-	Dllist Q = new_dllist();
-	initSingleSource(g, s);
-	// add vertices to queue
-	jrb_traverse(tmp, g.vertices){
-		dll_append(Q, tmp->key);
-	}
-
-	pre = s;
-
-	while(!dll_empty(Q)){
-		u = extractMin(g, Q);
-		if(u != pre){
-			w += getWeight(g, pre, u);
-		}
-		pre = u;
-
-		path[i] = u;
-		i++;
-		if(outDegree(g, u, output) == 0 && u == d){
-			// reach the destination
-			*len = i;
-			return w;
-		}
-		n = getAdjVertices(g, u, adj_vertices);
-		for(j = 0; j < n; j++){
-			relax(g, u, adj_vertices[j]);
-		}
-	}
-
-	return DBL_MAX;
-}
-*/
