@@ -2,6 +2,8 @@
 
 
 #define enqueue(queue, id) dll_append(queue, new_jval_i(id))
+#define push(stack, id) dll_prepend(stack, new_jval_i(id))
+#define pop(stack) dequeue(stack)
 
 
 Graph createGraph()
@@ -481,9 +483,14 @@ void BFS(Graph g, int s, int (*visit)(Graph, int))
 			}
 		}
 	}
+
+	// free the queue
+	free_dllist(queue);
 }
 
-int visitBFS(Graph g, int v)
+
+
+int visit(Graph g, int v)
 {
 	attrb a;
 	JRB tmp;
@@ -499,4 +506,62 @@ int visitBFS(Graph g, int v)
 	printf("%d: %s\n", jval_i(tmp->key), a->name);
 
 	return 0;
+}
+
+
+/* depth first search */
+void DFS(Graph g, int s, int (*visit)(Graph, int))
+{
+	Dllist stack;
+	JRB tmp;
+	attrb a;
+	int u, num_adj, i;
+	int adj[1000];
+
+	// mark all the vertices as unvisited
+	jrb_traverse(tmp, g.vertices){
+		a = getattrb(tmp);
+		a->visited = 0;
+	}
+
+	// visit the first vertex
+	/*visit(g, s);
+	tmp = jrb_find_int(g.vertices, s);
+	a = getattrb(tmp);
+	a->visited = 1;
+	*/
+
+	// initialize the stack
+	stack = new_dllist();
+	push(stack, s);
+
+	// BFS
+	while(!dll_empty(stack)){
+		/* pick up 1 vertex
+		and get its adj vertices*/
+		u = pop(stack);
+		// visit this node
+		tmp = jrb_find_int(g.vertices, u);
+		a = getattrb(tmp);
+		if(!a->visited){
+			visit(g, u);
+			a->visited = 1;
+		}
+		
+
+		// discover unvisited adj nodes
+		// and push it into the stack
+		num_adj = getAdjVertices(g, u, adj);
+		//printf("%d: %d\n", u, num_adj);
+		//for(i = num_adj-1; i >= 0 ; i--){
+		for(i = 0; i < num_adj ; i++){
+			tmp = jrb_find_int(g.vertices, adj[i]);
+			a = getattrb(tmp);
+			if(!(a->visited)){
+				push(stack, adj[i]);
+			}// end if
+		} // end for
+	} // end while
+
+	free_dllist(stack);
 }

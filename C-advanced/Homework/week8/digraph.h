@@ -59,12 +59,16 @@ JRB getVertexNode(Graph, int);
 JRB getAdjList(Graph , int);
 /* return -1 if there is no adj vertices */
 int getAdjVertices(Graph, int, int*);
-/* breath first search */
+/* breath first search
+The number of adj vertices BFS can holds is 1000 max
+so if it exceeds go to source code and change it */
 void BFS(Graph g, int s, int (*visit)(Graph, int));
+/* depth first search */
+void DFS(Graph g, int s, int (*visit)(Graph, int));
 //void addNode(Graph, int, int, char*, char*);
 //int getComponents(Graph);
 
 
 /* this function is used to visit nodes in BFS
 you can define you own function and pass it to BFS */
-int visitBFS(Graph g, int v);
+int visit(Graph g, int v);
