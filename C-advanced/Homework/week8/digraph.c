@@ -362,7 +362,7 @@ void relax(Graph g, int u, int v)
 int getAdjVertices(Graph g, int id, int* output)
 {
 	JRB tmp;
-	int i;
+	int i = 0;
 	JRB adjlist = getAdjList(g, id);
 	if(!adjlist){
 		return -1;
