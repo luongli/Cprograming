@@ -74,6 +74,10 @@ Jval jv(char *s)
 
 attrb getattrb(JRB node)
 {
+	if(!node){
+		printf("Node is null in function getattrb\n");
+		exit(1);
+	}
 	return ((attrb) jval_v(node->val));
 }
 
@@ -436,3 +440,63 @@ double shortestPath(Graph g, int s, int d, int *path, int *len)
 	return DBL_MAX;
 }
 
+
+void BFS(Graph g, int s, int (*visit)(Graph, int))
+{
+	Dllist queue;
+	JRB tmp;
+	attrb a;
+	int u, num_adj, i;
+	int adj[1000];
+
+	// mark all the vertices as unvisited
+	jrb_traverse(tmp, g.vertices){
+		a = getattrb(tmp);
+		a->visited = 0;
+	}
+
+	// visit the first vertex
+	visit(g, s);
+	tmp = jrb_find_int(g.vertices, s);
+	a = getattrb(tmp);
+	a->visited = 1;
+
+	// initialize the queue
+	queue = new_dllist();
+	dll_append(queue, ji(s));
+
+	// BFS
+	while(!dll_empty(queue)){
+		/* pick up 1 vertex
+		and get its adj vertices*/
+		u = dequeue(queue);
+		num_adj = getAdjVertices(g, u, adj);
+		for(i = 0; i < num_adj; i++){
+			tmp = jrb_find_int(g.vertices, adj[i]);
+			a = getattrb(tmp);
+			if(!(a->visited)){
+				visit(g, adj[i]);
+				a->visited = 1;
+				enqueue(queue, adj[i]);
+			}
+		}
+	}
+}
+
+int visitBFS(Graph g, int v)
+{
+	attrb a;
+	JRB tmp;
+
+	tmp = jrb_find_int(g.vertices, v);
+
+	if(!tmp){
+		printf("tmp is null in visitBFS function\n");
+		exit(1);
+	}
+
+	a = getattrb(tmp);
+	printf("%d: %s\n", jval_i(tmp->key), a->name);
+
+	return 0;
+}

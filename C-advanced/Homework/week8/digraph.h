@@ -13,6 +13,7 @@
 typedef struct{
 	char *name;
 	int ind;
+	int visited;
 	double d;
 	JRB predecessor;
 } at;
@@ -58,6 +59,12 @@ JRB getVertexNode(Graph, int);
 JRB getAdjList(Graph , int);
 /* return -1 if there is no adj vertices */
 int getAdjVertices(Graph, int, int*);
-
+/* breath first search */
+void BFS(Graph g, int s, int (*visit)(Graph, int));
 //void addNode(Graph, int, int, char*, char*);
 //int getComponents(Graph);
+
+
+/* this function is used to visit nodes in BFS
+you can define you own function and pass it to BFS */
+int visitBFS(Graph g, int v);
