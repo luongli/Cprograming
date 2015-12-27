@@ -44,6 +44,9 @@ int main()
 	printf("Weight of the edge (v1, v2) is %.2lf\n", getWeight(g, 1, 2));
 	printf("Weight of the edge (v1, unknown) is %.2lf\n", getWeight(g, 1, 9));
 
+	printf("check BFS\n");
+	BFS(g, 1, visitBFS);
+
 	dropGraph(g);
 
 	return 0;
